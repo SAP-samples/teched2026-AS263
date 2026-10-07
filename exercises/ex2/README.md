@@ -3,7 +3,7 @@
 Exercise 1 showed the agent answering questions in Joule. Nothing about the agent changes here. This exercise shows it the way a customer actually uses it, framed around a real Forward-Deployed Engineering (FDE) engagement in the Utilities domain. You watch the agent drive a business workflow end to end instead of answering trivia.
 
 <!--
-  TODO(Evan): this exercise is built around the utility-company FDE scenario you named.
+  TODO: this exercise is built around the utility-company FDE scenario you named.
   The scenario details are not invented here. Fill them in from the real engagement:
     - What is the customer's business problem that the data-access agent solves?
     - Which domains/data are involved?
@@ -14,22 +14,22 @@ Exercise 1 showed the agent answering questions in Joule. Nothing about the agen
 
 ## Scenario
 
-> `TODO(Evan): 2-3 sentences framing the (anonymized utility-company) business problem the agent addresses.`
+> `TODO: 2-3 sentences framing the (anonymized utility-company) business problem the agent addresses.`
 
 ## Exercise 2.1 - Walk the scenario questions
 
 Ask the agent the scenario's questions in order, and watch it build toward the business outcome:
 
-1. > `TODO(Evan): scenario question 1`
-2. > `TODO(Evan): scenario question 2`
-3. > `TODO(Evan): scenario question 3`
+1. > `TODO: scenario question 1`
+2. > `TODO: scenario question 2`
+3. > `TODO: scenario question 3`
 
-> **Point to make:** `TODO(Evan): what the FDE outcome shows that Exercise 1 did not, e.g. real messy data, a multi-step investigation, a decision the customer makes from the answer.`
+> **Point to make:** `TODO: what the FDE outcome shows that Exercise 1 did not, e.g. real messy data, a multi-step investigation, a decision the customer makes from the answer.`
 
 ## Exercise 2.2 - Try your own variation
 
 1. Change one of the scenario questions to explore a different angle:
-   > `TODO(Evan): a safe "now you try" prompt within the scenario's data.`
+   > `TODO: a safe "now you try" prompt within the scenario's data.`
 2. Confirm the agent adapts without any schema input from you.
 
 ## Summary

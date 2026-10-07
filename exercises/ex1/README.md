@@ -12,10 +12,10 @@ The S/4HANA domain covers finance, controlling, procurement documents, and more.
 
 1. In Joule, pick a suggested question or type your own.
 2. Ask:
-   > `TODO(Evan): S/4HANA question #1 with confirmed backing data`
+   > `TODO: S/4HANA question #1 with confirmed backing data`
 3. Expand the detail. Notice the views the agent chose. You did not name them.
 4. Ask a follow-up that changes the shape of the answer, such as a filter or a grouping:
-   > `TODO(Evan): S/4HANA question #2 (a variation of #1)`
+   > `TODO: S/4HANA question #2 (a variation of #1)`
 
 > **Point to make:** you wrote business language ("cost center", "overdue", "last quarter"), and the agent resolved it to the right CDS views and columns on its own.
 
@@ -24,7 +24,7 @@ The S/4HANA domain covers finance, controlling, procurement documents, and more.
 Now ask the same agent about procurement and spend in the Ariba domain. Nothing about the agent changed. Only your question did.
 
 1. Ask:
-   > `TODO(Evan): Ariba question with confirmed backing data, e.g. "Which suppliers have the longest payment terms?"`
+   > `TODO: Ariba question with confirmed backing data, e.g. "Which suppliers have the longest payment terms?"`
 2. Expand the detail and confirm the agent is resolving against Ariba entities now, not S/4HANA.
 
 > **Point to make:** this is where you show it is not hardcoded. The same agent handles a completely different domain because the enriched metadata describes both. There is no per-question wiring.
@@ -34,7 +34,7 @@ Now ask the same agent about procurement and spend in the Ariba domain. Nothing 
 Finally, ask something that needs both domains at once. This is the part a single canned query cannot fake.
 
 1. Ask:
-   > `TODO(Evan): a genuine cross-domain question joining procurement (Ariba) and finance (S/4HANA). Confirm the deployed service actually answers it before relying on it live.`
+   > `TODO: a genuine cross-domain question joining procurement (Ariba) and finance (S/4HANA). Confirm the deployed service actually answers it before relying on it live.`
 2. Expand the detail. The agent should show that it pulled from both domains and joined the results.
 
 > **Point to make:** this is the payoff. The agent broke a question down across domains and composed the answer. No human picked the views or wrote the join.

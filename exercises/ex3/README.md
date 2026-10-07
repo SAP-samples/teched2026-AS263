@@ -8,7 +8,7 @@ In the Agent surface you see this directly: you ask a question, the agent calls 
 
 1. Switch to the Agent surface.
 2. Ask:
-   > `TODO(Evan): a question that cleanly shows the tool-call trace, ideally one reused from Exercise 1 so attendees see the same answer arrive a different way.`
+   > `TODO: a question that cleanly shows the tool-call trace, ideally one reused from Exercise 1 so attendees see the same answer arrive a different way.`
 3. Watch the trace. The agent calls the data-access tool with your plain-language question, receives grounded SQL and the result rows, and composes the answer. The data access is a governed primitive; the agent did not need the schema.
 
 > **Point to make:** this is the same capability from Exercises 1 and 2, now exposed as a tool. The access is governed and authorized once; any agent can call it without ever seeing the schema.
@@ -16,7 +16,7 @@ In the Agent surface you see this directly: you ask a question, the agent calls 
 ## Exercise 3.2 - Ask your own question
 
 1. Replace the question with one of your own, within the domains and data you have seen:
-   > `TODO(Evan): a safe "now you try" prompt, same backing data as Exercise 1.`
+   > `TODO: a safe "now you try" prompt, same backing data as Exercise 1.`
 2. Confirm the agent calls the tool, gets grounded data back, and answers, with no schema input from you.
 
 ## Summary
