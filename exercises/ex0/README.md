@@ -6,14 +6,11 @@ In this exercise you connect to the hosted Domain Data Access Agent and confirm 
 
 The Domain Data Access Agent is available as a hosted service for this session. You do not install anything or join any network. You reach it over normal internet, and the presenter shares the credentials live.
 
-<!-- TODO: add a conceptual architecture diagram here (question -> agent -> Domain Model -> SAP data). No internal hosting/infra detail. -->
-
 ## Step 1 - Open the service
 
 1. In Chrome or Edge, open the service URL the presenter gives you:
    `TODO: attendee-facing URL (shared at the session)`
 2. When prompted, enter the credentials the presenter shares during the session.
-   <!-- TODO: confirm the sign-in step attendees see, kept generic. -->
 
 > If you cannot reach the URL, check that you have a working internet connection. The TechEd guest Wi-Fi is fine. If it still fails, flag a presenter.
 

@@ -22,10 +22,6 @@ By the end of this session you will be able to:
 - Call that same capability from an agent of your own, as a governed data-access tool.
 - Understand how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
 
-<!-- TODO: one architecture diagram here, at the level of detail cleared for a
-     public repo. Keep it conceptual (question -> agent -> Domain Model -> SAP data).
-     Do NOT show internal hosting/infra. -->
-
 ## Requirements
 
 The exercises run over the public internet against a hosted service. There is nothing to install, and no VPN or special network access is required. On the hands-on laptop (or your own) you need:
