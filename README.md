@@ -4,21 +4,23 @@
 
 This repository contains the material for the SAP TechEd 2026 session **AS263 - Powering autonomous agents with natural language data access**.
 
-An agent is only as useful as the data it can reach. Right now, getting an agent to answer a real business question ("which cost centers went over budget last quarter?", "which suppliers have the longest payment terms?") means someone has to know the schema, write the SQL, and wire up the joins first. This session shows how SAP Domain Models plus natural-language data access remove that step. The agent takes a plain-English question, works out which business entities and views it needs across one or more domains, and writes the query itself. The user never has to know the schema.
+An agent is only as useful as the data it can reach. Right now, getting an agent to answer a real business question ("which cost centers went over budget last quarter?", "which suppliers have the longest payment terms?") means someone has to know the schema, write the SQL, and wire up the joins first. This session shows how an autonomous agent closes that gap: you ask in plain English, and the agent works out which business entities and views it needs across one or more domains, writes the query, and returns a grounded answer. The user never has to know the schema. Under the hood this leverages proprietary metadata enriched by SAP Domain Models, which is what lets the agent map your question to the right data.
 
-Over about two hours you will drive the same capability through two different surfaces, so you can see that the work is being done by the agent and not by a scripted demo:
+Over about two hours you will drive the same capability through three different surfaces, so you can see that the work is being done by the agent and not by a scripted demo:
 
-1. The Agent Simulator, a guided UI for natural-language questions and answers.
-2. An FDE-style scenario, the capability applied to a real customer problem.
+1. Joule, the SAP assistant your users already know, as a plain chat box over your SAP data.
+2. A real customer scenario, the capability applied to a Utilities-domain FDE problem.
+3. The Agent surface, where the same capability becomes a tool your own agent can call.
 
 ## Overview
 
 By the end of this session you will be able to:
 
-- Explain what a SAP Domain Model is and why natural-language data access depends on it.
-- Ask business questions in plain English and get back grounded, correct answers over real SAP data in the S/4HANA and Ariba domains.
+- Ask business questions in plain English from inside Joule and get back grounded, correct answers over real SAP data in the S/4HANA and Ariba domains.
 - Watch the agent answer a cross-domain question that joins two domains, which a single hardcoded query cannot do.
-- See the same capability carry a real customer investigation end to end in an FDE-style scenario.
+- See the same agent carry a real customer investigation end to end in a Utilities-domain FDE scenario.
+- Call that same capability from an agent of your own, as a governed data-access tool.
+- Understand how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
 
 <!-- TODO(Evan): one architecture diagram here, at the level of detail cleared for a
      public repo. Keep it conceptual (question -> agent -> Domain Model -> SAP data).
@@ -37,11 +39,14 @@ The exercises run over the public internet against a hosted service. There is no
 ## Exercises
 
 - [Getting Started](exercises/ex0/): connect to the hosted service and run your first natural-language question.
-- [Exercise 1 - Natural-language data access with the Agent Simulator](exercises/ex1/)
+- [Exercise 1 - Ask your data in plain language with Joule](exercises/ex1/)
     - [Exercise 1.1 - Ask a question over the S/4HANA domain](exercises/ex1#exercise-11--ask-a-question-over-the-s4hana-domain)
     - [Exercise 1.2 - Same agent, a different domain (Ariba)](exercises/ex1#exercise-12--same-agent-a-different-domain-ariba)
     - [Exercise 1.3 - A cross-domain question](exercises/ex1#exercise-13--a-cross-domain-question)
-- [Exercise 2 - An autonomous agent on a real problem (FDE scenario)](exercises/ex2/)
+- [Exercise 2 - The same agent on a real customer problem](exercises/ex2/)
+- [Exercise 3 - Bring your own agent](exercises/ex3/)
+    - [Exercise 3.1 - Watch the tool call](exercises/ex3#exercise-31--watch-the-tool-call)
+    - [Exercise 3.2 - Ask your own question](exercises/ex3#exercise-32--ask-your-own-question)
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.

@@ -1,6 +1,6 @@
-# Exercise 2 - An autonomous agent on a real problem (FDE scenario)
+# Exercise 2 - The same agent on a real customer problem
 
-Exercise 1 showed the capability in a guided tool. This exercise shows it the way a customer actually uses it, framed around a real Forward-Deployed Engineering (FDE) engagement. You see the agent solve a business problem end to end instead of answering trivia.
+Exercise 1 showed the agent answering questions in Joule. Nothing about the agent changes here. This exercise shows it the way a customer actually uses it, framed around a real Forward-Deployed Engineering (FDE) engagement in the Utilities domain. You watch the agent drive a business workflow end to end instead of answering trivia.
 
 <!--
   TODO(Evan): this exercise is built around the utility-company FDE scenario you named.
@@ -38,6 +38,6 @@ Ask the agent the scenario's questions in order, and watch it build toward the b
 
 ## Summary
 
-You have watched the data-access agent carry a real customer investigation, not just one-off questions: one agent, across domains, driven entirely in plain language.
+You have watched the data-access agent carry a real customer investigation, not just one-off questions: one agent, across domains, driven entirely in plain language. Next you will call that same capability from an agent of your own.
 
-That wraps up the hands-on exercises. Thanks for attending AS263. For questions and feedback, use the [Issues](../../issues) tab.
+Continue to - [Exercise 3 - Bring your own agent](../ex3/README.md)

@@ -30,4 +30,4 @@ You should get a direct answer back, usually a table or a short result. If you e
 
 You are connected to the data-access agent and have seen one natural-language question answered end to end. Next you will push it across multiple domains.
 
-Continue to - [Exercise 1 - Natural-language data access with the Agent Simulator](../ex1/README.md)
+Continue to - [Exercise 1 - Ask your data in plain language with Joule](../ex1/README.md)
