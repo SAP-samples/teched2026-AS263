@@ -3,18 +3,18 @@
 Exercise 1 showed the capability in a guided tool. This exercise shows it the way a customer actually uses it, framed around a real Forward-Deployed Engineering (FDE) engagement. You see the agent solve a business problem end to end instead of answering trivia.
 
 <!--
-  TODO(Evan): this exercise is built around the EON FDE scenario you named. The scenario
-  details are not invented here. Fill them in from the real engagement:
-    - What is EON's business problem that the data-access agent solves?
+  TODO(Evan): this exercise is built around the utility-company FDE scenario you named.
+  The scenario details are not invented here. Fill them in from the real engagement:
+    - What is the customer's business problem that the data-access agent solves?
     - Which domains/data are involved?
     - What are the 3-5 questions that tell the story?
   Keep it to what is cleared to show publicly in a GitHub repo (OSPO plus customer confidentiality).
-  If EON specifics cannot be published, generalize to an anonymized utility-company scenario.
+  Do NOT name the customer in this public repo. Present it as an anonymized utility-company scenario.
 -->
 
 ## Scenario
 
-> `TODO(Evan): 2-3 sentences framing the EON (or anonymized) business problem the agent addresses.`
+> `TODO(Evan): 2-3 sentences framing the (anonymized utility-company) business problem the agent addresses.`
 
 ## Exercise 2.1 - Walk the scenario questions
 
