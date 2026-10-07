@@ -31,10 +31,7 @@ By the end of this session you will be able to:
 The exercises run over the public internet against a hosted service. There is nothing to install, and no VPN or special network access is required. On the hands-on laptop (or your own) you need:
 
 - A current browser (Chrome or Edge).
-- Access credentials for the hosted Domain Data Access Agent service. The presenter hands these out during the session, which is why they are not published in this repository. <!-- TODO(Evan): confirm cred format and the live hand-out mechanism. Keep both out of the repo. -->
-
-> **A note on access.** The Domain Data Access Agent is available as a hosted service for this session. You reach it over the public internet, and the presenter shares the credentials you need during the session.
-> Service URL: `TODO(Evan): fill in the attendee-facing URL` (shared at the session).
+- Access credentials will be provided by the presenters during the session.
 
 ## Exercises
 

@@ -11,8 +11,6 @@ In the Agent surface you see this directly: you ask a question, the agent calls 
    > `TODO(Evan): a question that cleanly shows the tool-call trace, ideally one reused from Exercise 1 so attendees see the same answer arrive a different way.`
 3. Watch the trace. The agent calls the data-access tool with your plain-language question, receives grounded SQL and the result rows, and composes the answer. The data access is a governed primitive; the agent did not need the schema.
 
-<br>![Agent surface tool call](images/03_01_0010.png)
-
 > **Point to make:** this is the same capability from Exercises 1 and 2, now exposed as a tool. The access is governed and authorized once; any agent can call it without ever seeing the schema.
 
 ## Exercise 3.2 - Ask your own question

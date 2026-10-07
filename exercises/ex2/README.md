@@ -24,8 +24,6 @@ Ask the agent the scenario's questions in order, and watch it build toward the b
 2. > `TODO(Evan): scenario question 2`
 3. > `TODO(Evan): scenario question 3`
 
-<br>![FDE scenario](images/02_01_0010.png)
-
 > **Point to make:** `TODO(Evan): what the FDE outcome shows that Exercise 1 did not, e.g. real messy data, a multi-step investigation, a decision the customer makes from the answer.`
 
 ## Exercise 2.2 - Try your own variation
@@ -33,8 +31,6 @@ Ask the agent the scenario's questions in order, and watch it build toward the b
 1. Change one of the scenario questions to explore a different angle:
    > `TODO(Evan): a safe "now you try" prompt within the scenario's data.`
 2. Confirm the agent adapts without any schema input from you.
-
-<br>![FDE scenario variation](images/02_02_0010.png)
 
 ## Summary
 

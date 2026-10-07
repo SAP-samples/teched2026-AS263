@@ -6,8 +6,7 @@ In this exercise you connect to the hosted Domain Data Access Agent and confirm 
 
 The Domain Data Access Agent is available as a hosted service for this session. You do not install anything or join any network. You reach it over normal internet, and the presenter shares the credentials live.
 
-<!-- TODO(Evan): conceptual architecture diagram here (question -> agent -> Domain Model -> SAP data). No internal hosting/infra detail. Replace placeholder image below. -->
-<br>![AS263 architecture](images/00_00_0010.png)
+<!-- TODO(Evan): add a conceptual architecture diagram here (question -> agent -> Domain Model -> SAP data). No internal hosting/infra detail. -->
 
 ## Step 1 - Open the service
 

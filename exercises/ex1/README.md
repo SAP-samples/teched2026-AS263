@@ -17,8 +17,6 @@ The S/4HANA domain covers finance, controlling, procurement documents, and more.
 4. Ask a follow-up that changes the shape of the answer, such as a filter or a grouping:
    > `TODO(Evan): S/4HANA question #2 (a variation of #1)`
 
-<br>![S/4HANA question in Joule](images/01_01_0010.png)
-
 > **Point to make:** you wrote business language ("cost center", "overdue", "last quarter"), and the agent resolved it to the right CDS views and columns on its own.
 
 ## Exercise 1.2 - Same agent, a different domain (Ariba)
@@ -28,8 +26,6 @@ Now ask the same agent about procurement and spend in the Ariba domain. Nothing 
 1. Ask:
    > `TODO(Evan): Ariba question with confirmed backing data, e.g. "Which suppliers have the longest payment terms?"`
 2. Expand the detail and confirm the agent is resolving against Ariba entities now, not S/4HANA.
-
-<br>![Ariba question in Joule](images/01_02_0010.png)
 
 > **Point to make:** this is where you show it is not hardcoded. The same agent handles a completely different domain because the enriched metadata describes both. There is no per-question wiring.
 
