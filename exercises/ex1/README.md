@@ -1,44 +1,40 @@
-# Exercise 1 - Exercise 1 Description
+# Exercise 1 - Ask your data in plain language with Joule
 
-In this exercise, we will create...
+This is the surface your users already know: Joule, the SAP assistant, as a plain chat box. You type a business question, and behind the chat the data-access agent turns it into a live query against real SAP data and hands back real rows. No SQL, no transaction code, no schema knowledge.
 
-## Exercise 1.1 Sub Exercise 1 Description
+This exercise proves the core idea of the session: one agent, many domains, no schema knowledge. It ends with a question that no single hardcoded query could answer.
 
-After completing these steps you will have created...
+Work through the questions in order. For each one, read the answer and then expand the agent's reasoning and SQL so you can see which business entities and SAP views it picked. You never named them.
 
-1. Click here.
-<br>![](/exercises/ex1/images/01_01_0010.png)
+## Exercise 1.1 - Ask a question over the S/4HANA domain
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello World! | ). 
-```
+The S/4HANA domain covers finance, controlling, procurement documents, and more.
 
+1. In Joule, pick a suggested question or type your own.
+2. Ask:
+   > `TODO: S/4HANA question #1 with confirmed backing data`
+3. Expand the detail. Notice the views the agent chose. You did not name them.
+4. Ask a follow-up that changes the shape of the answer, such as a filter or a grouping:
+   > `TODO: S/4HANA question #2 (a variation of #1)`
 
+## Exercise 1.2 - Same agent, a different domain (Ariba)
 
-## Exercise 1.2 Sub Exercise 2 Description
+Now ask the same agent about procurement and spend in the Ariba domain. Nothing about the agent changed. Only your question did.
 
-After completing these steps you will have...
+1. Ask:
+   > `TODO: Ariba question with confirmed backing data, e.g. "Which suppliers have the longest payment terms?"`
+2. Expand the detail and confirm the agent is resolving against Ariba entities now, not S/4HANA.
 
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
+## Exercise 1.3 - A cross-domain question
 
-```
+Finally, ask something that needs both domains at once. This is the part a single canned query cannot fake.
 
-2.	Click here.
-<br>![](/exercises/ex1/images/01_02_0010.png)
-
+1. Ask:
+   > `TODO: a genuine cross-domain question joining procurement (Ariba) and finance (S/4HANA). Confirm the deployed service actually answers it before relying on it live.`
+2. Expand the detail. The agent should show that it pulled from both domains and joined the results.
 
 ## Summary
 
-You've now ...
+You have driven one agent across the S/4HANA and Ariba domains from inside Joule, and watched it answer a cross-domain question, all from plain English. Next you will see the same agent carry a real customer problem end to end.
 
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
-
+Continue to - [Exercise 2 - The same agent on a real customer problem](../ex2/README.md)
