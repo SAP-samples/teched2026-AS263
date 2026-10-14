@@ -9,10 +9,10 @@ An agent is only as useful as the data it can reach. Right now, getting an agent
 The session has two halves. In the first, you drive the capability yourself to understand what it does and prove it is real. In the second, you look at it as a tool and work out how you would wire it into an agent of your own. You will reach the same capability through three surfaces:
 
 1. Joule, the SAP assistant your users already know, as a plain chat box over your SAP data.
-2. A real customer scenario, the capability applied to a Utilities-domain FDE problem.
-3. The Agent surface, where the same capability becomes a tool your own agent can call.
+2. A custom application you build yourself, composing several agent calls into one screen.
+3. The Agent surface, where the same capability becomes something another agent can call over A2A.
 
-This is hands-on. You will not just read answers, you will open the detail panel each time and see which SAP views the agent chose, write your own questions, and reason about the integration. That habit is what separates real data access from a scripted demo.
+This is hands-on. You will not just read answers, you will drive each surface: ask your own questions in Joule, build your own dashboard, and shape an agent of your own. That is what separates real data access from a scripted demo.
 
 ## Overview
 
@@ -20,7 +20,7 @@ By the end of this session you will be able to:
 
 - Ask business questions in plain English from inside Joule and get back grounded answers over real SAP data, and open the panel to see which views the agent chose.
 - Watch the agent handle lookups, filters, aggregations, and multi-view joins that a single hardcoded query cannot fake.
-- See the same agent carry a real customer investigation end to end, in English and German, in a Utilities-domain FDE scenario.
+- Build a small custom application yourself, composing several agent calls into one screen, and see the single call behind each widget.
 - Read a real agent card and watch a second agent call the data agent over A2A, then reason about how you would wire that into your own agent.
 - Explain how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
 
@@ -38,8 +38,8 @@ The exercises run over the public internet against a hosted service. There is no
     - [Exercise 1.1 - Single-domain fluency](exercises/ex1#exercise-11---single-domain-fluency)
     - [Exercise 1.2 - Reasoning across views](exercises/ex1#exercise-12---reasoning-across-views)
     - [Exercise 1.3 - Same intent, different words](exercises/ex1#exercise-13---same-intent-different-words)
-- [Exercise 2 - The same agent on a real customer problem](exercises/ex2/)
-    - Act 1 - Triage open exceptions, Act 2 - Billing blockers, Act 3 - Portfolio overview, and the same question in German
+- [Exercise 2 - Build a custom app on the agent](exercises/ex2/)
+    - Add widgets, pick a question and a display shape, and compose a dashboard where every widget is a live agent call
 - [Exercise 3 - Bring your own agent](exercises/ex3/)
     - [Exercise 3.1 - Read the card, then watch the handoff](exercises/ex3#exercise-31---read-the-card-then-watch-the-handoff)
     - [Exercise 3.2 - Design your own integration](exercises/ex3#exercise-32---design-your-own-integration)

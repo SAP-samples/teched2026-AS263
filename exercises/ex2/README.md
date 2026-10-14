@@ -1,60 +1,46 @@
-# Exercise 2 - The same agent on a real customer problem
+# Exercise 2 - Build a custom app on the agent
 
-Exercise 1 showed the agent answering questions in Joule. Nothing about the agent changes here. This exercise shows it the way a customer actually uses it, framed around a real Forward-Deployed Engineering engagement in the Utilities domain. You watch the agent drive a business workflow end to end instead of answering one-off questions.
+Exercise 1 used Joule: a chat box that answers one question at a time. That is how an end user reaches the Domain Data Access Agent. This exercise is how a *developer* reaches it. You build a small custom application whose every widget is a live call to the same agent.
 
-Switch to the **Utilities scenario** tab. The scenario runs in three acts down the left rail. Work them in order.
+The point is composition. A chat box answers one question; a purpose-built screen composes many answers into one workflow. Here you assemble that screen yourself.
 
-## Scenario
+Switch to the **Custom Applications** tab. You start with an empty canvas.
 
-A clarification-case processor at a Utilities-domain customer starts every morning with the same manual ritual: opening several Fiori apps, scrolling through billing-exception queues, and copying case IDs into a spreadsheet to work out what to tackle first.
+## Exercise 2.1 - Add your first widget
 
-With the Domain Data Access Agent in Joule, that same processor asks natural-language questions against live S/4HANA data, in English or German, and gets the prioritised exception list back in one conversational turn. The three acts below follow one processor through a real morning: triage the open cases, find out what is blocking billing, and hand a structured list to a supervised fix.
+1. Click **Add a widget**.
+2. Pick a question for the agent to answer. Start with:
+   > `Count clarification cases by processing status`
+3. Choose how to show it. For a question that returns counts, **KPI tiles** is a good fit.
+4. Click **Add to dashboard**.
 
-## Act 1 - Triage open exceptions
+The widget appears and runs a live call to the Domain Data Access Agent. After a few seconds it fills with real data from the SAP system. You picked the question and the presentation; the agent did the rest.
 
-What needs my attention today?
+## Exercise 2.2 - Compose a dashboard
 
-1. > `List the open clarification cases`
-   The processor's first question every morning. Open the panel and note the view the agent resolved for billing-exception cases.
-2. > `Show me the top 5 clarification cases I should resolve first`
-   The agent applies the prioritisation rule (urgency and due date), not you. You asked for "the ones I should resolve first" and it worked out what that means.
+One widget is not an app. Add two more so the screen does real work:
 
-## Act 2 - Billing blockers
+1. Add **`Show me the top 5 clarification cases I should resolve first`** as a **Table / worklist**. This is the operational list a processor acts on.
+2. Add **`Why are utilities contracts blocked for billing?`** as a **Bar breakdown**. This is the analytical view a billing manager needs.
 
-Why are contracts stuck?
+You now have three widgets on one screen: a KPI summary, an actionable worklist, and an analytical breakdown. No single chat answer gives you that. A custom app does, because it fires several agent calls and lays the results out together.
 
-1. > `List blocked utilities contracts to be billed`
-   The question moves from exception cases to billing objects. The agent picks the right view for the new subject on its own.
-2. > `Why are utilities contracts blocked for billing?`
-   This turns a raw list into a summary: the agent groups the blocked contracts by block reason, which is what a billing manager actually needs to act.
+## Exercise 2.3 - See the call behind a widget
 
-## Act 3 - Portfolio overview
+Every widget is one agent call. Prove it to yourself.
 
-How big is the backlog?
+1. On any widget, click **call**.
+2. Read the request. It is a single `message/send` call to the agent with your plain-English question. That is the entire integration: a question in, grounded data back.
+3. Note what you did *not* write: no SQL, no schema, no connection code. The widget is a thin shell around one agent call.
 
-1. > `Count clarification cases by processing status`
-   A cross-cutting status breakdown for the team lead, with no custom report and no BI tool.
+## Exercise 2.4 - Try your own composition
 
-## Act 1, in German
-
-The agent resolves intent, not language. A German utility's processor would ask the same first question in German:
-
-1. > `Zeige mir die offenen Klärungsfälle`
-2. Open the panel and confirm the agent resolved the same billing-exception view it used for the English question in Act 1. The language changed; the answer did not.
-
-## Now you try
-
-1. Take any question above and change one thing: a filter, a grouping, or the ordering. For example, ask for cases by priority instead of by status.
-2. Confirm the agent adapts with no schema input from you.
-
-## Where this goes - supervised remediation
-
-The exception list the agent returns is not the end. It is the input to a human-approved fix.
-
-A remediation agent proposes a correction for each case. The processor reviews the proposal, approves or edits it, and the fix is written back to S/4HANA only after human sign-off. That closes the loop: natural-language query in, structured exception list, supervised fix, system update. The data-access agent is the grounded first step of that loop, and in the next exercise you see it offered as a tool any agent can build on.
+1. Remove a widget (the small close control on its header), or add another from the question list.
+2. Try the **same question in a different shape**. For example, add `Why are utilities contracts blocked for billing?` as **KPI tiles** instead of a breakdown.
+3. Notice the data is identical; only your presentation changed. The agent returns grounded data, and you decide how your app shows it.
 
 ## Summary
 
-You have watched the Domain Data Access Agent carry a real customer investigation across three acts, in two languages, driven entirely in plain language. Next you will call that same capability from an agent of your own.
+You have built a custom application on the Domain Data Access Agent: you chose the questions, chose the layout, and every widget ran a live call. That is the developer's path to the same capability Joule gave your users. Next you will reach the agent a third way, from an agent of your own.
 
 Continue to - [Exercise 3 - Bring your own agent](../ex3/README.md)
