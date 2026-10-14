@@ -4,23 +4,25 @@
 
 This repository contains the material for the SAP TechEd 2026 session **AS263 - Powering autonomous agents with natural language data access**.
 
-An agent is only as useful as the data it can reach. Right now, getting an agent to answer a real business question ("which cost centers went over budget last quarter?", "which suppliers have the longest payment terms?") means someone has to know the schema, write the SQL, and wire up the joins first. This session shows how an autonomous agent closes that gap: you ask in plain English, and the agent works out which business entities and views it needs across one or more domains, writes the query, and returns a grounded answer. The user never has to know the schema. Under the hood this leverages proprietary metadata enriched by SAP Domain Models, which is what lets the agent map your question to the right data.
+An agent is only as useful as the data it can reach. Right now, getting an agent to answer a real business question ("which sales orders are blocked from delivery?", "why are these contracts blocked for billing?") means someone has to know the schema, write the SQL, and wire up the joins first. This session shows how an autonomous agent closes that gap: you ask in plain English, and the agent works out which business entities and views it needs, writes the query, and returns a grounded answer. The user never has to know the schema. Under the hood this leverages proprietary metadata enriched by SAP Domain Models, which is what lets the agent map your question to the right data.
 
-Over about two hours you will drive the same capability through three different surfaces, so you can see that the work is being done by the agent and not by a scripted demo:
+The session has two halves. In the first, you drive the capability yourself to understand what it does and prove it is real. In the second, you look at it as a tool and work out how you would wire it into an agent of your own. You will reach the same capability through three surfaces:
 
 1. Joule, the SAP assistant your users already know, as a plain chat box over your SAP data.
 2. A real customer scenario, the capability applied to a Utilities-domain FDE problem.
 3. The Agent surface, where the same capability becomes a tool your own agent can call.
 
+This is hands-on. You will not just read answers, you will open the detail panel each time and see which SAP views the agent chose, write your own questions, and reason about the integration. That habit is what separates real data access from a scripted demo.
+
 ## Overview
 
 By the end of this session you will be able to:
 
-- Ask business questions in plain English from inside Joule and get back grounded, correct answers over real SAP data in the S/4HANA and Ariba domains.
-- Watch the agent answer a cross-domain question that joins two domains, which a single hardcoded query cannot do.
-- See the same agent carry a real customer investigation end to end in a Utilities-domain FDE scenario.
-- Call that same capability from an agent of your own, as a governed data-access tool.
-- Understand how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
+- Ask business questions in plain English from inside Joule and get back grounded answers over real SAP data, and open the panel to see which views the agent chose.
+- Watch the agent handle lookups, filters, aggregations, and multi-view joins that a single hardcoded query cannot fake.
+- See the same agent carry a real customer investigation end to end, in English and German, in a Utilities-domain FDE scenario.
+- Read the tool contract for grounded data access and reason about how you would call it from an agent of your own.
+- Explain how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
 
 ## Requirements
 
@@ -31,15 +33,16 @@ The exercises run over the public internet against a hosted service. There is no
 
 ## Exercises
 
-- [Getting Started](exercises/ex0/): connect to the hosted service and run your first natural-language question.
+- [Getting Started](exercises/ex0/): connect to the hosted service, run your first natural-language question, and open the panel to see the view the agent chose.
 - [Exercise 1 - Ask your data in plain language with Joule](exercises/ex1/)
-    - [Exercise 1.1 - Ask a question over the S/4HANA domain](exercises/ex1#exercise-11--ask-a-question-over-the-s4hana-domain)
-    - [Exercise 1.2 - Same agent, a different domain (Ariba)](exercises/ex1#exercise-12--same-agent-a-different-domain-ariba)
-    - [Exercise 1.3 - A cross-domain question](exercises/ex1#exercise-13--a-cross-domain-question)
+    - [Exercise 1.1 - Single-domain fluency](exercises/ex1#exercise-11---single-domain-fluency)
+    - [Exercise 1.2 - Reasoning across views](exercises/ex1#exercise-12---reasoning-across-views)
+    - [Exercise 1.3 - Same intent, different words](exercises/ex1#exercise-13---same-intent-different-words)
 - [Exercise 2 - The same agent on a real customer problem](exercises/ex2/)
+    - Act 1 - Triage open exceptions, Act 2 - Billing blockers, Act 3 - Portfolio overview, and the same question in German
 - [Exercise 3 - Bring your own agent](exercises/ex3/)
-    - [Exercise 3.1 - Watch the tool call](exercises/ex3#exercise-31--watch-the-tool-call)
-    - [Exercise 3.2 - Ask your own question](exercises/ex3#exercise-32--ask-your-own-question)
+    - [Exercise 3.1 - Read the contract, then watch a real call](exercises/ex3#exercise-31---read-the-contract-then-watch-a-real-call)
+    - [Exercise 3.2 - Design your own integration](exercises/ex3#exercise-32---design-your-own-integration)
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
