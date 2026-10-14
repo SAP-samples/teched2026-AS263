@@ -21,7 +21,7 @@ By the end of this session you will be able to:
 - Ask business questions in plain English from inside Joule and get back grounded answers over real SAP data, and open the panel to see which views the agent chose.
 - Watch the agent handle lookups, filters, aggregations, and multi-view joins that a single hardcoded query cannot fake.
 - See the same agent carry a real customer investigation end to end, in English and German, in a Utilities-domain FDE scenario.
-- Read the tool contract for grounded data access and reason about how you would call it from an agent of your own.
+- Read a real agent card and watch a second agent call the data agent over A2A, then reason about how you would wire that into your own agent.
 - Explain how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
 
 ## Requirements
@@ -41,7 +41,7 @@ The exercises run over the public internet against a hosted service. There is no
 - [Exercise 2 - The same agent on a real customer problem](exercises/ex2/)
     - Act 1 - Triage open exceptions, Act 2 - Billing blockers, Act 3 - Portfolio overview, and the same question in German
 - [Exercise 3 - Bring your own agent](exercises/ex3/)
-    - [Exercise 3.1 - Read the contract, then watch a real call](exercises/ex3#exercise-31---read-the-contract-then-watch-a-real-call)
+    - [Exercise 3.1 - Read the card, then watch the handoff](exercises/ex3#exercise-31---read-the-card-then-watch-the-handoff)
     - [Exercise 3.2 - Design your own integration](exercises/ex3#exercise-32---design-your-own-integration)
 
 ## Contributing
