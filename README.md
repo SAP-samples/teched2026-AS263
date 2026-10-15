@@ -10,7 +10,7 @@ Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a g
 
 ## Background
 
-One key principal in the world of agentic AI is that agents are only as useful as the context that grounds them. We define agents as "autonomous software systems that use an artificial intelligence model to plan, reason, and take multi-step actions to achieve a specific goal." However, reasoning and acting on static, tenant-agnostic context can only get you so far. Many enterprise agents fall short in value because they lack real-time access to enterprise data, which provides the foundation for most business critical decisions.
+One key principal in the world of agentic AI is that agents are only as useful as the context that grounds them. We define agents as "autonomous software systems that use an artificial intelligence model to plan, reason, and take multi-step actions to achieve a specific goal." But reasoning over fixed, general knowledge only goes so far. Many enterprise agents fall short because they cannot reach the live enterprise data that most business-critical decisions depend on.
 
 This gap applies to agents as well as human business users and/or decision-makers. Take these two ordinary business questions from the perspective of an Internal Sales Representative:
 
