@@ -24,13 +24,13 @@ A business user may not be able to answer these from a standard SAP Fiori tile.
 
 These processes take days or weeks, when in reality, modern business needs demand this gap to be closed in minutes.
 
-Going through this session, you will see how the **SAP Domain Data Access Agent** solves these problems. Three different surfaces all powered by our agent will demonstrate its overarching business value.
+Going through this session, you will see how the **SAP Domain Data Access Agent** solves these problems. Three different surfaces all powered by our agent will demonstrate its wide use cases and business value.
 
 ## Surfaces
 
-1. **Conversational Joule Platform**: business user questions spanning simple lookups to multi-view joins and whole-portfolio rankings, and the same agent reaching across more than one business system (SAP S/4HANA and SAP Ariba)
-2. **A custom application**: the same underlying agent embedded inside a custom user-facing dashboard
-3. **The Agents surface**: where the data agent becomes a tool that your own agent calls over A2A, reasoning over and acting on the results as a human would
+1. **Conversational Joule Platform**: business user questions for one-off queries spanning simple lookups to multi-view joins and rankings
+2. **Applications**: the same underlying agent embedded inside custom dashboard applications
+3. **Agents**: where the data agent becomes a tool that your own agent calls over A2A, reasoning over and acting on the results as a human would
 
 ## Additional Technical Takeaways
 
