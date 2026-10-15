@@ -2,34 +2,61 @@
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2026 session **AS263 - Powering autonomous agents with natural language data access**.
+This repository contains material for the SAP TechEd 2026 session **AS263 - Powering autonomous agents with natural language data access**. 
 
-An agent is only as useful as the data it can reach. Right now, getting an agent to answer a real business question ("which sales orders are blocked from delivery?", "why are these contracts blocked for billing?") means someone has to know the schema, write the SQL, and wire up the joins first. This session shows how an autonomous agent closes that gap: you ask in plain English, and the agent works out which business entities and views it needs, writes the query, and returns a grounded answer. The user never has to know the schema. Under the hood this leverages proprietary metadata enriched by SAP Domain Models, which is what lets the agent map your question to the right data.
+Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a governed natural-language-to-data access layer that will be released soon to Early Adopter Care (EAC) customers through the Joule Conversational Platform and also as a stand-alone agentic solution. Other business applications or agents speaking over Agent-to-Agent (A2A) protocol can leverage this agent to enable live, cross-domain data access to SAP S/4HANA modules or other SAP backend systems like SAP Ariba. As you will explore in this workshop, our agent streamlines data retrieval for business users and securely powers autonomous enterprise workflows.
 
-The session has two halves. In the first, you drive the capability yourself to understand what it does and prove it is real. In the second, you look at it as a tool and work out how you would wire it into an agent of your own. You reach the same capability through three surfaces, and each one shows something the others cannot:
+\**The **SAP Domain Data Access Agent** is available as a multi-tenant, SAP-managed SaaS application in the Business Technology Platform (BTP)*
 
-1. **Joule**, the SAP assistant your users already know, as a plain chat box. This is where you see range: simple lookups through to multi-view joins and whole-portfolio rankings, and the same agent reaching across more than one business system (S/4HANA and Ariba).
-2. **A custom application**, where the same agent is embedded in a role-shaped dashboard and every tile is a live call.
-3. **The Agents surface**, where the data agent becomes a tool your own agent calls over A2A, then reasons over and acts on the result.
+## Background
 
-This is hands-on. You drive each surface yourself: ask your own questions in Joule, load a role's dashboard, and build an agent flow of your own. That is what separates real data access from a scripted demo.
+One key principal in the world of agentic AI is that agents are only as useful as the context that grounds them. We define agents as "autonomous software systems that use an artificial intelligence model to plan, reason, and take multi-step actions to achieve a specific goal." However, reasoning and acting on static, tenant-agnostic context can only get you so far. Many enterprise agents fall short in value because they lack real-time access to enterprise data, which provides the foundation for most business critical decisions.
 
-## Overview
+This gap applies to agents as well as human business users and/or decision-makers. Take these two ordinary business questions from the perspective of an Internal Sales Representative:
 
-By the end of this session you will be able to:
+  1. Which sales orders are blocked from delivery?
+  2. Why are these contracts blocked for billing?
 
-- Ask business questions in plain English from inside Joule and get back grounded answers over real SAP data, and open the panel to see which views the agent chose.
-- Watch the agent handle lookups, filters, aggregations, and multi-view joins that a single hardcoded query cannot fake, and reach across two business systems (S/4HANA sales, Ariba sourcing and contracts) from the same chat.
-- Load a role-shaped dashboard in a custom application and see the single live call behind each tile.
-- Build a short agent flow that queries the data agent over A2A, then reasons over and acts on the grounded result, and reason about how you would wire that into your own agent.
-- Explain how the agent leverages proprietary metadata enriched by SAP Domain Models under the hood to map plain-English questions to the right data.
+A business user may not be able to answer these from a standard SAP Fiori tile. If not, the user must create a ticket for triaging by an internal support desk: 
+- If it needs system knowledge, it goes to an SAP functional analyst, who locates the right tables, links them, and dumps the result to Excel 
+- If the need is recurring, it escalates into a functional specification, and an ABAP developer builds a custom application that must be promoted through Dev, QA, and acceptance testing before it reaches production.
+
+These processes take days or weeks, when in reality, modern business needs require this gap to be closed in minutes.
+
+Going through this session, you will see how the **SAP Domain Data Access Agent** solves these problems. Three different surfaces all powered by our agent will demonstrate its overarching business value.
+
+## Surfaces
+
+1. **Conversational Joule Platform**: business user questions spanning simple lookups to multi-view joins and whole-portfolio rankings, and the same agent reaching across more than one business system (SAP S/4HANA and SAP Ariba)
+2. **A custom application**: the same underlying agent is embedded in a role-shaped dashboard and every tile is a live call
+3. **The Agents surface**, where the data agent becomes a tool your own agent calls over A2A, then reasons over and acts on the result as a human would
+
+## Additional Technical Takeaways
+
+In addition to understanding the business value and integration potential of our agent for you and your customers, you will gain a better understanding of how the agent:
+
+- Propagates and scopes authorization based on the underlying user's role grants
+- Resolves and shortlists data view or entity candidates for querying
+- Handles lookups, filters, aggregations, and multi-view joins for complex questions
+
 
 ## Requirements
 
-The exercises run over the public internet against a hosted service. There is nothing to install, and no VPN or special network access is required. On the hands-on laptop (or your own) you need:
+The exercises run over the public internet against a hosted service. No VPN or special network access is required. On the hands-on laptop, you only need:
 
-- A current browser (Chrome or Edge).
-- Access credentials will be provided by the presenters during the session.
+- A modern web browser (Chrome, Edge, or Safari)
+- Workshop application link and access credentials which will be provided by the facilitators at the beginning of the session
+
+## Workshop Facilitators
+
+The facilitators for AS263 Hands-On Workshop are:
+
+- **Evan Schweizer**
+- **Raghunath Posa**
+- **Kevin Terusaki**
+- **Zhidong Ke**
+
+Please raise your hand during the workshop and one of us will come over to support you and answer any questions! We will also share our email addresses during the session for follow ups and further inquiries!
 
 ## Exercises
 
