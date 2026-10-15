@@ -8,9 +8,9 @@ The Domain Data Access Agent is available as a hosted service for this session. 
 
 The service puts the same capability behind three surfaces, shown as tabs across the top:
 
-- **Joule** - the SAP assistant, as a plain chat box over your SAP data.
-- **Utilities scenario** - the same agent driving a real customer workflow.
-- **Agent** - the same capability as a tool your own agent can call.
+- **Joule** - the SAP assistant, as a plain chat box over your SAP data, across more than one business system.
+- **Applications** - the same agent inside a custom-built app, shaped for a role.
+- **Agents** - the same capability as a tool your own agent can call.
 
 You will work through all three. For now, stay on **Joule**.
 
@@ -36,7 +36,7 @@ You get a direct answer back, a short table of sales orders. You never told the 
 This is the part most demos skip, and it is the part that proves the point. Open the detail on that answer (the SQL / execution panel) and look at the query the agent ran.
 
 1. Find the SQL the agent generated.
-2. Find the one SAP view it selected: `C_OpenSalesOrder`.
+2. Find the one SAP view it selected (its name starts with `C_` and is about open sales orders).
 3. Note that you never named it. You asked for "open sales orders" in plain English, and the agent mapped that to the right business view on its own, using the Domain Model underneath.
 
 > Keep this panel in mind. Through the rest of the session, every time the agent answers, you can open this view and see exactly which data it reached for. That is how you tell real data access from a scripted demo.
