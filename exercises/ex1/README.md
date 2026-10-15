@@ -8,9 +8,11 @@ The questions below climb a ladder. Each step adds one thing the previous step d
 
 Exercises 1.1 and 1.2 run against the **SAP S/4HANA** tab. Exercise 1.3 switches to the **SAP Ariba** tab to show the same agent on a second business system. Both tabs are across the top of the Joule surface.
 
+> **Set your role first.** On the **SAP S/4HANA** tab, open the "I am a" dropdown and pick **Internal Sales Representative**. The questions below are a sales rep's day, and the role tailors the data the agent reaches for. You can switch roles any time.
+
 ## Exercise 1.1 - Single-domain fluency
 
-Start simple and add one twist at a time. Ask these in order:
+With the role set to **Internal Sales Representative**, start simple and add one twist at a time. Ask these in order:
 
 1. > `Show me all open sales orders`
    A plain lookup. Open the panel and read the one view the agent selected. You never named it.
