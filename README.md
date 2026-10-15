@@ -12,16 +12,17 @@ Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a g
 
 One key principal in the world of agentic AI is that agents are only as useful as the context that grounds them. We define agents as "autonomous software systems that use an artificial intelligence model to plan, reason, and take multi-step actions to achieve a specific goal." But reasoning over fixed, general knowledge only goes so far. Many enterprise agents fall short because they cannot reach the live enterprise data that most business-critical decisions depend on.
 
-This gap applies to agents as well as human business users and/or decision-makers. Take these two ordinary business questions from the perspective of an Internal Sales Representative:
+This gap applies to agents as well as the human decision-makers they support. Take these two ordinary business questions from the perspective of an Internal Sales Representative:
 
   1. Which sales orders are blocked from delivery?
   2. Why are these contracts blocked for billing?
 
-A business user may not be able to answer these from a standard SAP Fiori tile. If not, the user must create a ticket for triaging by an internal support desk: 
+A business user may not be able to answer these from a standard SAP Fiori tile. 
+- If not, the user must create a ticket for triaging by an internal support desk 
 - If it needs system knowledge, it goes to an SAP functional analyst, who locates the right tables, links them, and dumps the result to Excel 
 - If the need is recurring, it escalates into a functional specification, and an ABAP developer builds a custom application that must be promoted through Dev, QA, and acceptance testing before it reaches production.
 
-These processes take days or weeks, when in reality, modern business needs require this gap to be closed in minutes.
+These processes take days or weeks, when in reality, modern business needs demand this gap to be closed in minutes.
 
 Going through this session, you will see how the **SAP Domain Data Access Agent** solves these problems. Three different surfaces all powered by our agent will demonstrate its overarching business value.
 
