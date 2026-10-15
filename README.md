@@ -4,7 +4,7 @@
 
 This repository contains material for the SAP TechEd 2026 session **AS263 - Powering autonomous agents with natural language data access**. 
 
-Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a governed natural-language-to-data access layer that will be released soon to Early Adopter Care (EAC) customers through the Joule Conversational Platform and also as a stand-alone agentic solution. Other business applications or agents speaking over Agent-to-Agent (A2A) protocol can leverage this agent to enable live, cross-domain data access to SAP S/4HANA modules or other SAP backend systems like SAP Ariba. As you will explore in this workshop, our agent streamlines data retrieval for business users and securely powers autonomous enterprise workflows.
+Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a governed natural-language-to-data access layer that will be released soon to Early Adopter Care (EAC) customers through the Joule Conversational Platform and also as a stand-alone agentic solution. Other business applications or agents speaking over Agent-to-Agent (A2A) protocol can leverage this agent to enable live, cross-domain data access to SAP S/4HANA and other SAP backend systems like SAP Ariba. As you will explore in this workshop, our agent streamlines data retrieval for business users and securely powers autonomous enterprise workflows.
 
 \**The **SAP Domain Data Access Agent** is available as a multi-tenant, SAP-managed SaaS application in the Business Technology Platform (BTP)*
 
