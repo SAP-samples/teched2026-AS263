@@ -28,8 +28,8 @@ Going through this session, you will see how the **SAP Domain Data Access Agent*
 ## Surfaces
 
 1. **Conversational Joule Platform**: business user questions spanning simple lookups to multi-view joins and whole-portfolio rankings, and the same agent reaching across more than one business system (SAP S/4HANA and SAP Ariba)
-2. **A custom application**: the same underlying agent is embedded in a role-shaped dashboard and every tile is a live call
-3. **The Agents surface**, where the data agent becomes a tool your own agent calls over A2A, then reasons over and acts on the result as a human would
+2. **A custom application**: the same underlying agent embedded inside a custom user-facing dashboard
+3. **The Agents surface**: where the data agent becomes a tool that your own agent calls over A2A, reasoning over and acting on the results as a human would
 
 ## Additional Technical Takeaways
 
