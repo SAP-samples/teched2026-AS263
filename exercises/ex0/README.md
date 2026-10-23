@@ -38,6 +38,4 @@ The agent does not guess at your data. It runs on SAP Domain Models, the enriche
 
 Agent-to-Agent (A2A) is the open protocol the other surfaces use to talk to the agent: a client discovers the agent (its agent card), sends it a task, and streams back the result. You will see A2A in the Simulator and Agents tabs. Open the A2A link on the tab.
 
-That is setup done: the agent, the Domain Models that ground it, the A2A protocol that exposes it.
-
 Continue to - [Exercise 1 - See how it works (Simulator)](../ex1/README.md)
