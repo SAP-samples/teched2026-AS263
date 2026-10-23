@@ -17,7 +17,7 @@ Type any question you like and run it. Some things worth trying:
 - The same question as two different roles, to see the scope change.
 - A multi-step question that needs a join (an order and its delivery, a customer and their totals).
 - A question you would actually ask in your own work.
-- Something you expect it to get wrong, to see how it fails (it should tell you, not guess).
+- Something you expect it to get wrong, to see how it fails (it should tell you when it cannot answer).
 
 You get the full agent trace on every answer, the same one you read in the Simulator: resolve, generate, execute, verify.
 

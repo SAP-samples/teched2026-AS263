@@ -39,7 +39,7 @@ Click **Run agent** (top right) and watch each step light up in order:
 - The **Reason** step applies your goal to those rows.
 - The **Act** step turns the result into the output you chose. If you added a second action, both run on the same rows.
 
-Look at the Query step's result: you get the **rows** and a **verification** flag, not the SQL. That is the A2A boundary. Your agent receives grounded, authorized data, never the query behind it. It never sees the schema, never writes SQL, never holds a database credential. It sends a question and gets back data it is allowed to see.
+Look at the Query step's result: you get the **rows** and a **verification** flag. That is the A2A boundary. Your agent receives grounded, authorized data; the query stays on the agent's side. It never sees the schema, never writes SQL, never holds a database credential. It sends a question and gets back data it is allowed to see.
 
 ## Where it drops in
 

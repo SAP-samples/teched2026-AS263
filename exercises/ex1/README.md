@@ -26,7 +26,7 @@ On that result, find the governance funnel: thousands of views in the system, na
 
 ## Step 4 - Look at the data it ran against
 
-Expand the returned data. These are live rows from the SAP system, not a canned sample. Read a few.
+Expand the returned data. These are live rows, pulled from the SAP system when you ran the question. Read a few.
 
 ## Step 5 - Watch it retry
 
@@ -34,7 +34,7 @@ Still as the **Sales Representative**, run:
 
 > `How many sales orders are blocked from delivery?`
 
-This one is harder (it has to find the right status field). You will usually see it generate a query, hit a problem, reason, and generate a corrected query before it succeeds. That retry is the agent checking its own work, not returning the first thing it wrote.
+This one is harder (it has to find the right status field). You will usually see it generate a query, hit a problem, reason, and generate a corrected query before it succeeds. That retry is the agent checking its own work before it answers.
 
 ## Step 6 - Run the agent as the Finance Controller
 
@@ -46,7 +46,7 @@ and
 
 > `Show me the 5 most recent journal entries for company 0001 and list document types`
 
-Neither is a sales question, and you still never named a table. Watch the funnel: it scopes to the finance role's reach, not the sales role's.
+Neither is a sales question, and you still never named a table. Watch the funnel: it scopes to the finance role's own reach.
 
 ## Step 7 - Run the agent as the Purchaser
 
@@ -60,7 +60,7 @@ Same agent again, a third domain. One agent, many jobs, each scoped to the role 
 
 Set **Logged in as** to the **Utilities Billing Clerk**. This role has its own question button, the open-sales-orders question marked as outside its reach. Run it.
 
-It is the same question you ran in Step 2; only the role changed. Sales data is outside the Utilities Billing Clerk's reach, so the agent concludes it cannot answer instead of inventing a result. This is the governed behavior that makes it safe in front of real users: it stays inside the role's authorizations and tells you when it cannot help. Switch the role back when you are done.
+It is the same question you ran in Step 2; only the role changed. Sales data is outside the Utilities Billing Clerk's reach, so the agent concludes it cannot answer and says so. This is the governed behavior that makes it safe in front of real users: it stays inside the role's authorizations and tells you when it cannot help. Switch the role back when you are done.
 
 ## Step 9 - Run a complex cross-domain question
 
@@ -74,8 +74,8 @@ This is two steps in one question: the agent first finds the latest journal entr
 
 Open the generated query on each result and read it. Two things the agent got right that a general model routinely gets wrong on SAP:
 
-- **Predicate shaping.** In the blocked-from-delivery query, the filters are real technical codes, not guessed English: `"SDDocumentCategory" = 'C'`, `"OverallDeliveryBlockStatus" = 'C'`, and a block-reason check `"DeliveryBlockReason" <> ' '`. The agent knew the status fields and their code values, which is exactly what a plain language model guesses wrong.
-- **Column discipline.** The open-sales-orders query selects a sensible set of columns and caps the rows (`LIMIT 30`) rather than pulling everything. Output stays readable and the system stays protected.
+- **Predicate shaping.** In the blocked-from-delivery query, the filters are real technical codes: `"SDDocumentCategory" = 'C'`, `"OverallDeliveryBlockStatus" = 'C'`, and a block-reason check `"DeliveryBlockReason" <> ' '`. The agent knew the status fields and their code values, which is exactly what a plain language model guesses wrong.
+- **Column discipline.** The open-sales-orders query selects a sensible set of columns and caps the rows (`LIMIT 30`). Output stays readable and the system stays protected.
 
 These come from the SAP Domain Models grounding the agent. Beyond what these two questions surface, the same rules also handle value encoding (matching a human value like 100248 to its padded key 0000100248), SAP date and period formats, parametrized views, and a guard that checks selected fields against the current view metadata so columns that do not exist are intercepted. You will see more of these as you push the agent with your own questions in Freestyle.
 

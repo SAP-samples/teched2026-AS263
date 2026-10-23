@@ -8,7 +8,7 @@ Open the **Joule** tab.
 
 ## Step 1 - Sign in through SAP IAS
 
-The Joule tab opens on an SAP Identity Authentication sign-in, the first hop in how a real SAP user reaches Joule. Instead of a password, you pick who you are from a short list of business users:
+The Joule tab opens on an SAP Identity Authentication sign-in, the first hop in how a real SAP user reaches Joule. You pick who you are from a short list of business users:
 
 - **Emma Ellis**, Internal Sales Representative
 - **Claire Corbett**, Finance Controller
@@ -43,7 +43,7 @@ Joule is the chat surface; the Domain Data Access Agent is the engine underneath
 
 ## Step 5 - Sign in as the Master Data Specialist
 
-Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data, not sales orders:
+Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data:
 
 > `tell me the name of business partner 1003286`
 
