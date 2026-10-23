@@ -2,7 +2,7 @@
 
 The Simulator is the one tab where you look under the hood. Everywhere else you see the answer; here you watch the agent work. One question becomes a sequence: scope to your authorizations, resolve the right views, generate a query, run it live, verify the result, answer.
 
-You run a fixed set of verified questions as buttons here. There is no free text box on this tab (that is Freestyle, at the end).
+You run a fixed set of verified questions as buttons here; there is no free text box on this tab. You will be able to write your own queries in the Freestyle tab after going through all the exercises.
 
 One thing to know up front: the questions you can run depend on the role selected in **Logged in as** at the top. The tab shows only that role's questions, and a question runs as that role. Change the role and the question buttons change with it. That is the whole point: one agent, scoped per role.
 
