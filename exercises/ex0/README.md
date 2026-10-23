@@ -32,7 +32,7 @@ Open the overview link on the tab, then expand **See the live agent card** to se
 
 ## Step 4 - Read: SAP Domain Models
 
-The agent does not guess at your data. It runs on SAP Domain Models, the enriched understanding of SAP data that lets it map a plain-language question to the right business entities and generate correct, schema-qualified queries. Open the SAP Domain Models link on the tab.
+The agent does not guess at your data. It runs on SAP Domain Models, the enriched understanding of SAP data that lets it map a plain-language question to the right business entities and generate correct, schema-qualified queries. Open the SAP Domain Models link on the tab to learn more.
 
 ## Step 5 - Read: the A2A protocol
 
