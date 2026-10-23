@@ -60,7 +60,7 @@ The exercises run over the public internet against a hosted service. No VPN or s
 The facilitators for AS263 Hands-On Workshop are:
 
 - **Evan Schweizer**
-- **Raghunath Posa**
+- **Prabal Chakraborty**
 - **Kevin Terusaki**
 - **Zhidong Ke**
 
