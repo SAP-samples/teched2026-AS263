@@ -19,14 +19,18 @@ The Query step is the only one that touches SAP. Everything else works on the ro
 
 ## Step 1 - Configure the flow
 
-The flow opens on a sensible default. Read it top to bottom, then shape it:
+The flow opens on a sensible default. Read it top to bottom, then shape each step (each one you set is a tracked step in the tab):
 
 1. **Trigger.** Leave it on **A user asks** and pick a question from the dropdown.
 2. **Query the Domain Data Access Agent.** You do not configure this. It takes the trigger's question and sends the A2A task.
 3. **Reason.** Pick a goal or type your own. Try **Assess the risk and name the top concerns**.
-4. **Act.** Leave it on **Summarize for a manager**, or pick another. You can **Add another action** to do more than one thing with the same rows.
+4. **Act.** Choose what the agent does with the result (for example **Summarize for a manager**).
 
-## Step 2 - Run it
+## Step 2 - Add a second action
+
+Click **Add another action** below the Act step and pick a different action (for example **Draft an email** or **Make a to-do list**). Both actions will run on the same rows the Query step brought back, so your agent can do more than one thing with a single data call.
+
+## Step 3 - Run it
 
 Click **Run agent** (top right) and watch each step light up in order:
 

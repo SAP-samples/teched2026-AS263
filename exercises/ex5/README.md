@@ -10,7 +10,7 @@ Finishing every guided tab reveals a passcode (shown in the progress strip once 
 
 ## Step 2 - Ask your own questions
 
-Pick any role from the selector. There are far more here than the guided tabs showed: roles across both the QJ9 and SIX landscapes, spanning sales, finance, purchasing, maintenance, production, master data, and more. Each role sends its own authorization grants, so the agent is scoped to what that role can reach.
+Pick any role from the selector. There are far more here than the guided tabs showed: roles across more than one SAP system, spanning sales, finance, purchasing, maintenance, production, master data, and more. Each role sends its own authorization grants, so the agent is scoped to what that role can reach.
 
 Type any question you like and run it. Some things worth trying:
 
