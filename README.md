@@ -12,9 +12,12 @@ Our workshop is a hands-on preview for the **SAP Domain Data Access Agent**, a g
 
 One key principal in the world of agentic AI is that agents are only as useful as the context that grounds them. We define agents as "autonomous software systems that use an artificial intelligence model to plan, reason, and take multi-step actions to achieve a specific goal." But reasoning over fixed, general knowledge only goes so far. Many enterprise agents fall short because they cannot reach the live enterprise data that most business-critical decisions depend on.
 
-This gap applies to agents as well as the human decision-makers they support. Take an ordinary request from an Internal Sales Representative: a customer calls about sales order 140780, and the rep needs to know the full picture, when it was created, whether it has been delivered and invoiced, and the total value of that customer's recent orders.
+This gap applies to agents as well as the human decision-makers they support. Take an ordinary request an Internal Sales Representative gets when a customer calls about sales order 140780:
 
-Answering this means following the order across several linked business objects (the order, its delivery, its invoice) and knowing exactly where each field lives. From a standard SAP Fiori tile, a business user often cannot:
+  1. When was the order created, and has it been delivered and invoiced yet?
+  2. What is the total value of that customer's orders this year?
+
+A business user often cannot answer these from a standard SAP Fiori tile, because the answer spans several linked business objects (the order, its delivery, its invoice, the customer) and you have to know where each field lives.
 - If the data is not on a tile, the user raises a ticket for an internal support desk to triage.
 - If it needs system knowledge, it goes to an SAP functional analyst, who locates the right tables, links them, and dumps the result to Excel.
 - If the need is recurring, it escalates into a functional specification, and an ABAP developer builds a custom application that must be promoted through Dev, QA, and acceptance testing before it reaches production.
