@@ -26,6 +26,14 @@ These processes take days or weeks, when in reality, modern business needs deman
 
 Going through this session, you will see how the **SAP Domain Data Access Agent** solves these problems. You will see the same agent reason over live data under the hood, and then meet it again through several surfaces, used by many different business roles, to show its range and business value.
 
+## Additional Technical Takeaways
+
+In addition to understanding the business value and integration potential of our agent for you and your customers, you will gain a better understanding of how the agent:
+
+- Propagates and scopes authorization based on the underlying user's role grants
+- Resolves and shortlists data view or entity candidates for querying
+- Handles lookups, filters, aggregations, and multi-view joins for complex questions
+
 ## The workshop app
 
 The hosted workshop app presents the agent through a set of tabs. You work left to right:
@@ -38,14 +46,6 @@ The hosted workshop app presents the agent through a set of tabs. You work left 
 6. **Freestyle**: unlocked once you finish the guided tabs. Ask anything you like, as any of a wide set of roles, and tell us how it did.
 
 The Simulator is where you see how it works; Joule, Applications, and Agents are three ways the same agent is consumed. On the guided tabs you run a set of curated, verified questions; free-form questions are reserved for the Freestyle tab at the end.
-
-## Additional Technical Takeaways
-
-In addition to understanding the business value and integration potential of our agent for you and your customers, you will gain a better understanding of how the agent:
-
-- Propagates and scopes authorization based on the underlying user's role grants
-- Resolves and shortlists data view or entity candidates for querying
-- Handles lookups, filters, aggregations, and multi-view joins for complex questions
 
 
 ## Requirements
