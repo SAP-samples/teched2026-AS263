@@ -1,71 +1,56 @@
-# Exercise 1 - Ask your data in plain language with Joule
+# Exercise 1 - See how it works (Simulator)
 
-This is the surface your users already know: Joule, the SAP assistant, as a plain chat box. You type a business question, and behind the chat the Domain Data Access Agent turns it into a live query against real S/4HANA data and hands back real rows. No SQL, no transaction code, no schema knowledge.
+The Simulator is the one tab where you look under the hood. Everywhere else you see the answer; here you watch the agent work. One question becomes a sequence: scope to your authorizations, resolve the right views, generate a query, run it live, verify the result, answer.
 
-The questions below climb a ladder. Each step adds one thing the previous step did not do, and each step asks you to open the detail panel and read what the agent chose. Working the ladder is the point, so drive it yourself rather than reading past the answers. By the end you will have watched one agent handle lookups, filters, aggregations, and multi-view joins, all from plain English.
+You run a fixed set of verified questions as buttons here. There is no free text box on this tab (that is Freestyle, at the end).
 
-> **How to work each question:** ask it, read the answer, then open the SQL / detail panel and find the SAP view the agent selected. You never named it. That habit is what turns this from a demo you watch into something you can trust.
+Open the **Simulator** tab.
 
-Exercises 1.1 and 1.2 run against the **SAP S/4HANA** tab. Exercise 1.3 switches to the **SAP Ariba** tab to show the same agent on a second business system. Both tabs are across the top of the Joule surface.
+## Step 1 - See the request you send
 
-> **Set your role first.** On the **SAP S/4HANA** tab, open the "I am a" dropdown and pick **Internal Sales Representative**. The questions below are a sales rep's day, and the role tailors the data the agent reaches for. You can switch roles any time.
+Click **Show request sent over A2A**. This is the exact A2A message the client sends the agent: the question, the target system, and your authorization grants. Same protocol you read about in Exercise 0, now carrying a real request.
 
-## Exercise 1.1 - Single-domain fluency
+## Step 2 - Run a clean, one-shot question
 
-With the role set to **Internal Sales Representative**, start simple and add one twist at a time. Ask these in order:
+Run the first question (as the **Sales Representative**):
 
-1. > `Show me all open sales orders`
-   A plain lookup. Open the panel and read the one view the agent selected. You never named it.
-2. > `Show me the sales orders created in March 2026`
-   Same domain, now with a date range. Notice the agent added a date filter you described in words, not in SQL.
-3. > `Show me the invoicing status for sales order 140780`
-   A status lookup on a single document. The agent resolves which view carries fulfillment status.
+> `Show me all open sales orders`
 
-Now move from lists to numbers. The agent aggregates, it does not only fetch rows:
+Watch the Agent steps build in order: scope and resolve the CDS view candidates, generate SQL, execute against the live system, validate, compose the answer. This one lands first try. You never named a table or a view; the agent mapped "open sales orders" to the right view itself.
 
-4. > `How many sales orders are blocked from delivery?`
-   A count with a filter. The answer is a single number, not a list.
-5. > `Show me a report of sales documents for customer USCU_ACNTR broken down by status`
-   A grouped report. One question, a full breakdown by status.
+## Step 3 - Read the governance funnel
 
-**Now you try.** Write your own question that returns a *count* rather than a list. Hint: start it with "how many". Ask it, then open the panel and confirm the generated query aggregates instead of listing rows.
+On that result, find the governance funnel: thousands of views in the system, narrowed to the views the role's grants reach, narrowed again to the few resolved for this question. The agent only ever considers data the signed-in role is allowed to reach.
 
-## Exercise 1.2 - Reasoning across views
+## Step 4 - Look at the data it ran against
 
-A single hardcoded query reaches one table. The questions below need more than one business view joined together, and the agent works out the join on its own. This is the part a canned demo cannot fake.
+Expand the returned data. These are live rows from the SAP system, not a canned sample. Read a few.
 
-1. > `Show me the document flow and status of sales order 140780 and all preceding documents`
-   Open the panel. The agent joined more than one view to follow the document flow. List the views you see.
-2. > `Show me the address of customer 1000654 and the total value of their sales orders since January 2026`
-   This needs customer master data and sales order data together, joined and summed. You asked one plain-English question; the agent planned the join.
+## Step 5 - Watch it retry
 
-**Reflect.** In each of these, how many views did the agent touch, and did you name any of them? That is the difference between natural-language data access and a saved query behind a button.
+Run the second question (still as the **Sales Representative**):
 
-## Exercise 1.3 - The same agent on a second system (Ariba)
+> `How many sales orders are blocked from delivery?`
 
-Everything so far hit S/4HANA. The agent is not tied to one system. Switch to the **SAP Ariba** tab at the top of the Joule surface and ask about procurement data in the same plain English.
+This one is harder (it has to find the right status field). You will usually see it generate a query, hit a problem, reason, and generate a corrected query before it succeeds. That retry is the agent checking its own work, not returning the first thing it wrote.
 
-The Ariba tab has its own roles. Start as the **Sourcing Manager** (the default):
+## Step 6 - Watch it refuse to guess
 
-1. > `List all sourcing projects`
-   A lookup against Ariba, not S/4HANA. Same chat, different business system.
-2. > `Show me all active sourcing projects with their owners`
-   A filtered list with an owner lookup.
+Run the third question, as the **Utilities Billing Clerk**:
 
-Now switch the role to **Contract Manager** (the "I am a" dropdown) and ask:
+> `Show me all open sales orders`
 
-3. > `Show me all contracts expiring in 2026`
-   Contract data, a date filter, still plain English.
-4. > `List all contract workspaces created in 2017`
+Same question as Step 2, different role. Sales data is outside this role's reach, so the agent concludes it cannot answer instead of inventing a result. This is the governed behavior that makes it safe in front of real users: it stays inside the role's authorizations and tells you when it cannot help.
 
-Open the panel on any of these. The query is Ariba AQL, not SQL, because the agent is talking to a different system underneath. You did not change anything about how you asked. The agent worked out which system owns the data and how to query it.
+## Deep dive - what you just watched (optional)
 
-> **The point of this exercise.** One agent, two systems, one way of asking. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
+The agent embeds rules for the SAP-specific pitfalls a general model trips on. In the traces you just ran, look for:
 
-> If you want a self-paced recap of the S/4HANA story, use the **Guided walkthrough** button in the top bar. It replays the core sales prompts one at a time with narration.
+- **Value encoding**: a human value like 100248 is matched to its padded key 0000100248.
+- **Date handling**: natural dates become SAP's internal date and period formats.
+- **Parametrized views**: views that need parameters get them in the right executable syntax.
+- **Predicate shaping**: status and flag fields use the correct technical codes, not a guessed literal.
+- **Column discipline**: output is clamped to a sensible set of columns and rows.
+- **Hallucination guard**: selected fields are checked against the current view metadata, so columns that do not exist are intercepted.
 
-## Summary
-
-You drove one agent up a ladder of question shapes in S/4HANA (lookup, filter, status, count, grouped report, multi-view joins), then switched it to Ariba for sourcing and contracts without changing how you ask. Every time, you could open the panel and see which view or AQL the agent chose. Next you see the same agent embedded in a custom app.
-
-Continue to - [Exercise 2 - A custom app on the agent](../ex2/README.md)
+Continue to - [Exercise 2 - Ask your data in plain language (Joule)](../ex2/README.md)
