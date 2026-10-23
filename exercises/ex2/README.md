@@ -1,6 +1,6 @@
 # Exercise 2 - Ask your data in plain language (Joule)
 
-Joule is the surface your users already know: a plain chat box. You pick a role, pick a question, and behind the chat the Domain Data Access Agent runs a live query against real SAP data and hands back rows. No SQL, no transaction code, no schema knowledge.
+Joule is the surface your users already know: a plain chat box. You sign in as a business role, pick a question, and behind the chat the Domain Data Access Agent runs a live query against real SAP data and hands back rows. No SQL, no transaction code, no schema knowledge.
 
 You run verified questions as suggestion chips here; free-form questions are reserved for Freestyle. This exercise is about range: one agent, many roles, more than one SAP system.
 
@@ -14,13 +14,20 @@ Click **Show system diagram** in the tab bar. It lays out the pieces:
 
 Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. Your identity is propagated through, so every query runs with your own authorizations. Leave the diagram open; it animates as a question runs.
 
-## Step 2 - Switch roles and watch the scope change
+## Step 2 - Sign in through SAP IAS
 
-Open the **I am a** dropdown. There is a wide set of roles (Purchaser, Finance Controller, Internal Sales Representative, Maintenance Technician, Production Supervisor, and more). Pick a different role and the suggested questions change with it. Same agent, each role scoped to its own authorizations. This is the funnel from the Simulator, now from the user's seat.
+The Joule tab opens on an SAP Identity Authentication sign-in, the same first hop you just saw in the diagram. Instead of a password, you pick who you are from a short list of business users:
+
+- **Emma Ellis**, Internal Sales Representative
+- **Claire Corbett**, Finance Controller
+- **Evan Eldridge**, Master Data Specialist
+- **Dana Delaney**, Maintenance Technician
+
+Pick **Emma Ellis** and click **Continue**. You land in the Joule chat signed in as that user. The questions you can run are the ones that fit her role, because the agent scopes to the authorizations she signs in with. This is the governance funnel from the Simulator, now from the user's own seat.
 
 ## Step 3 - Ask a question
 
-As the **Internal Sales Representative**, run the lookup:
+The questions for your role appear as buttons above the chat box. The chat box is there, but you do not type in it: click a question and it fills the box, then press **Send**. As **Emma Ellis**, run the lookup:
 
 > `when the sales order 140780 was created`
 
@@ -32,22 +39,24 @@ The second one needs more than one business view joined (the order, its delivery
 
 ## Step 4 - Read the generated query
 
-On an answer, open **Show SQL** and read the query the agent generated and ran. You never wrote it and never named the views in it. Run the report-style question and read its query too:
+On an answer, open **Show SQL** and read the query the agent generated and ran. You never wrote it and never named the views in it.
 
-> `check the following customer "Alpha Center (USCU_ACNTR)" and share a report showing a number of sales document by object status`
+## Step 5 - Sign in as a different role
 
-A count by status (a grouped report) from one plain-English request.
+Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as a different user to see the same agent serve a different job:
 
-## Step 5 - Switch to a second system (Ariba)
+- As **Evan Eldridge** (Master Data Specialist): `tell me the name of business partner 1003286`, then `Search business partners with city Shanghai`.
+- As **Dana Delaney** (Maintenance Technician): `List all jobs for plant 1010`, then `Show me all jobs currently in process`.
+- As **Claire Corbett** (Finance Controller): `Show general ledger entries for company code 1710`.
 
-Everything so far hit SAP S/4HANA. Switch to the **SAP Ariba** tab at the top, pick the **Sourcing Manager** role, and run:
+Each role signs in fresh and sees only its own questions. Master data, maintenance, finance: one agent, each user scoped to their own authorizations.
+
+## Step 6 - Cross to a second system (Ariba)
+
+Everything so far hit SAP S/4HANA. Switch to the **SAP Ariba** tab at the top. Because Ariba is a different system, you sign in again through SAP IAS, this time as an Ariba user (**Sofia Mertens**, Sourcing Manager). Sign in and run:
 
 > `List all sourcing projects`
 
-Same chat, same way of asking, a different SAP system underneath. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
-
-## Try more roles (optional)
-
-Switch roles again and run that role's suggested questions. A Finance Controller pulling general ledger entries, a Purchaser on purchase orders, a Maintenance Technician on notifications: same agent, different role, different domain. That breadth is the point.
+Same chat, same way of asking, a different SAP system underneath, and its own sign-in. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
 
 Continue to - [Exercise 3 - A custom app on the agent (Applications)](../ex3/README.md)
