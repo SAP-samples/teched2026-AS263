@@ -56,19 +56,19 @@ Switch **Logged in as** to the **Purchaser** and run:
 
 Same agent again, a third domain. One agent, many jobs, each scoped to the role asking.
 
-## Step 8 - Run a complex cross-domain question
-
-Switch **Logged in as** to the **Full Access User**. This role has no authorization scope, so it reaches every view, which lets you ask something that spans more than one business object at once. Run:
-
-> `First find the latest journal entry for company code 0001, then show its tax items`
-
-This is two steps in one question: the agent first finds the latest journal entry, then follows it to its tax items and joins the two. Watch the Agent steps: it resolves more than one view, generates a query that links them, and composes a single answer. There is also a second complex question on this role if you want to push it further.
-
-## Step 9 - Watch it refuse to guess
+## Step 8 - Watch it refuse to guess
 
 Set **Logged in as** to the **Utilities Billing Clerk**. This role has its own question button, the open-sales-orders question marked as outside its reach. Run it.
 
 It is the same question you ran in Step 2; only the role changed. Sales data is outside the Utilities Billing Clerk's reach, so the agent concludes it cannot answer instead of inventing a result. This is the governed behavior that makes it safe in front of real users: it stays inside the role's authorizations and tells you when it cannot help. Switch the role back when you are done.
+
+## Step 9 - Run a complex cross-domain question
+
+Finish on the **Full Access User**. This role has no authorization scope, so it reaches every view, which lets you ask something that spans more than one business object at once. Run:
+
+> `First find the latest journal entry for company code 0001, then show its tax items`
+
+This is two steps in one question: the agent first finds the latest journal entry, then follows it to its tax items and joins the two. Watch the Agent steps: it resolves more than one view, generates a query that links them, and composes a single answer. There is also a second complex question on this role if you want to push it further.
 
 ## Deep dive - read the generated SQL (optional)
 
