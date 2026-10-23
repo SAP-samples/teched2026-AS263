@@ -1,44 +1,76 @@
-# Exercise 2 - A custom app on the agent
+# Exercise 2 - Ask your data in plain language (Joule)
 
-Exercise 1 used Joule: a chat box that answers one question at a time. That is how an end user reaches the Domain Data Access Agent. This exercise is the developer's path. The same agent sits inside a custom-built application, and every tile on the screen is a live call to it.
+Joule is the surface your users already know: a plain chat box. You sign in as a business role, pick a question, and behind the chat the Domain Data Access Agent runs a live query against real SAP data and hands back rows. No SQL, no transaction code, no schema knowledge.
 
-The point is composition. A chat box answers one question. A purpose-built screen pulls many answers together and shapes them for one person's job. Here that screen is already built, and you drive it.
+You run verified questions as suggestion chips here; free-form questions are reserved for Freestyle. This exercise is about range: one agent, many roles, more than one SAP system.
 
-Switch to the **Applications** tab.
+Open the **Joule** tab.
 
-## Exercise 2.1 - Pick a role
+## Step 1 - Sign in through SAP IAS
 
-The app does not open on a blank dashboard. It opens on a question: who is this app for? Pick a role and the app builds the dashboard for it.
+The Joule tab opens on an SAP Identity Authentication sign-in, the first hop in how a real SAP user reaches Joule. You pick who you are from a short list of business users:
 
-1. Under **Who is this app for?**, pick **Billing Manager**.
-2. The dashboard appears, shaped for that role: the contracts still to bill, a breakdown of unbilled contracts by portion, and the count blocked for billing.
+- **Emma Ellis**, Internal Sales Representative
+- **Claire Corbett**, Finance Controller
+- **Evan Eldridge**, Master Data Specialist
+- **Dana Delaney**, Maintenance Technician
 
-Nothing about the agent changed from Exercise 1. The same Domain Data Access Agent answers each tile. What changed is the packaging: a screen built for one job instead of a chat box.
+Pick **Emma Ellis** and click **Continue**. You land in the Joule chat signed in as that user. The questions you can run are the ones that fit her role, because the agent scopes to the authorizations she signs in with. This is the governance funnel from the Simulator, now from the user's own seat.
 
-## Exercise 2.2 - Load the tiles
+## Step 2 - Ask a question
 
-1. Click **Load all tiles** (top right of the dashboard).
-2. Each tile fires its own live call to the agent and fills with real data from the SAP system after a few seconds.
+The questions for your role appear as buttons above the chat box. The chat box is there, but you do not type in it: click a question and it fills the box, then press **Send**. As **Emma Ellis**, run the lookup:
 
-You now have one screen doing real work: a worklist a billing manager acts on, a breakdown they read, and a headline number they watch. No single chat answer gives you that. A custom app does, because it fires several agent calls and lays the results out together.
+> `when the sales order 140780 was created`
 
-## Exercise 2.3 - See the call behind a tile
+Then the cross-document question:
 
-Every tile is one agent call, nothing more.
+> `show me the delivery document details and the invoice details which are related to sales order 140780`
 
-1. Read the label under each tile title: "Powered by the Domain Data Access Agent."
-2. That is the whole integration behind the tile: a plain-English question in, grounded data back. No SQL in the app, no schema, no connection code. The tile is a thin shell around one agent call.
+The second one needs more than one business view joined (the order, its delivery, its invoice). You asked once; the agent planned the join. This is the sales rep scenario from the workshop intro, answered in seconds.
 
-## Exercise 2.4 - Switch the role
+## Step 3 - Read the generated query
 
-The dashboard is built from the role, so changing the role rebuilds it.
+On an answer, open **Show SQL** and read the query the agent generated and ran. You never wrote it and never named the views in it.
 
-1. Pick a different persona (**Clarification Case Processor** or **Operations Lead**).
-2. The tiles change to the ones that role needs, each still a live call.
-3. Notice what you did not do: you did not write a query, wire a data source, or touch a schema. You picked who the app is for, and the agent answered for them.
+## Step 4 - Connect the dots: see what ran underneath
 
-## Summary
+Now that you have run a question, click **Show system diagram** in the tab bar. It lays out the pieces behind the chat:
 
-You drove a custom application on the Domain Data Access Agent: you picked the role, the app shaped a dashboard for it, and every tile ran a live call. That is the developer's path to the same capability Joule gave your users. Next you reach the agent a third way, from an agent of your own.
+> You -> SAP IAS (authenticate) -> Joule -> principal propagation -> Domain Data Access Agent -> SAP S/4HANA / Ariba
 
-Continue to - [Exercise 3 - Bring your own agent](../ex3/README.md)
+Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. You signed in through SAP IAS at the top of this exercise, and your identity is propagated through, so the query you just ran used your own authorizations. Run another question with the diagram open and watch it animate through the pieces.
+
+## Step 5 - Sign in as the Master Data Specialist
+
+Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data:
+
+> `tell me the name of business partner 1003286`
+
+and
+
+> `Search business partners with city Shanghai`
+
+Same agent, a different job, scoped to his authorizations.
+
+## Step 6 - Sign in as the Maintenance Technician
+
+Sign out again and sign in as **Dana Delaney** (Maintenance Technician). Her questions are about plant maintenance:
+
+> `List all jobs for plant 1010`
+
+and
+
+> `Show me all jobs currently in process`
+
+Three roles, three domains (sales, master data, maintenance), one agent, each user scoped to what they are allowed to see.
+
+## Step 7 - Cross to a second system (Ariba)
+
+Everything so far hit SAP S/4HANA. Switch to the **SAP Ariba** tab at the top. Because Ariba is a different system, you sign in again through SAP IAS, this time as an Ariba user (**Sofia Mertens**, Sourcing Manager). Sign in and run:
+
+> `List all sourcing projects`
+
+Same chat, same way of asking, a different SAP system underneath, and its own sign-in. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
+
+Continue to - [Exercise 3 - A custom app on the agent (Applications)](../ex3/README.md)

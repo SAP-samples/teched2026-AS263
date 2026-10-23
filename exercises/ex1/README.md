@@ -1,71 +1,82 @@
-# Exercise 1 - Ask your data in plain language with Joule
+# Exercise 1 - See how it works (Simulator)
 
-This is the surface your users already know: Joule, the SAP assistant, as a plain chat box. You type a business question, and behind the chat the Domain Data Access Agent turns it into a live query against real S/4HANA data and hands back real rows. No SQL, no transaction code, no schema knowledge.
+The Simulator is the one tab where you look under the hood. Everywhere else you see the answer; here you watch the agent work. One question becomes a sequence: scope to your authorizations, resolve the right views, generate a query, run it live, verify the result, answer.
 
-The questions below climb a ladder. Each step adds one thing the previous step did not do, and each step asks you to open the detail panel and read what the agent chose. Working the ladder is the point, so drive it yourself rather than reading past the answers. By the end you will have watched one agent handle lookups, filters, aggregations, and multi-view joins, all from plain English.
+You run a fixed set of verified questions as buttons here; there is no free text box on this tab. You will be able to write your own queries in the Freestyle tab after going through all the exercises.
 
-> **How to work each question:** ask it, read the answer, then open the SQL / detail panel and find the SAP view the agent selected. You never named it. That habit is what turns this from a demo you watch into something you can trust.
+One thing to know up front: the questions you can run depend on the role selected in **Logged in as** at the top. The tab shows only that role's questions, and a question runs as that role. Change the role and the question buttons change with it. That is the whole point: one agent, scoped per role.
 
-Exercises 1.1 and 1.2 run against the **SAP S/4HANA** tab. Exercise 1.3 switches to the **SAP Ariba** tab to show the same agent on a second business system. Both tabs are across the top of the Joule surface.
+Open the **Simulator** tab.
 
-> **Set your role first.** On the **SAP S/4HANA** tab, open the "I am a" dropdown and pick **Internal Sales Representative**. The questions below are a sales rep's day, and the role tailors the data the agent reaches for. You can switch roles any time.
+## Step 1 - See the request you send
 
-## Exercise 1.1 - Single-domain fluency
+Click **Show request sent over A2A**. This is the exact A2A message the client sends the agent: the question, the target system, and your authorization grants. Same protocol you read about in Exercise 0, now carrying a real request.
 
-With the role set to **Internal Sales Representative**, start simple and add one twist at a time. Ask these in order:
+## Step 2 - Run a clean, one-shot question
 
-1. > `Show me all open sales orders`
-   A plain lookup. Open the panel and read the one view the agent selected. You never named it.
-2. > `Show me the sales orders created in March 2026`
-   Same domain, now with a date range. Notice the agent added a date filter you described in words, not in SQL.
-3. > `Show me the invoicing status for sales order 140780`
-   A status lookup on a single document. The agent resolves which view carries fulfillment status.
+Leave **Logged in as** on the **Sales Representative** and run:
 
-Now move from lists to numbers. The agent aggregates, it does not only fetch rows:
+> `Show me all open sales orders`
 
-4. > `How many sales orders are blocked from delivery?`
-   A count with a filter. The answer is a single number, not a list.
-5. > `Show me a report of sales documents for customer USCU_ACNTR broken down by status`
-   A grouped report. One question, a full breakdown by status.
+Watch the Agent steps build in order: scope and resolve the CDS view candidates, generate SQL, execute against the live system, validate, compose the answer. This one lands first try. You never named a table or a view; the agent mapped "open sales orders" to the right view itself.
 
-**Now you try.** Write your own question that returns a *count* rather than a list. Hint: start it with "how many". Ask it, then open the panel and confirm the generated query aggregates instead of listing rows.
+## Step 3 - Read the governance funnel
 
-## Exercise 1.2 - Reasoning across views
+On that result, find the governance funnel: thousands of views in the system, narrowed to the views the role's grants reach, narrowed again to the few resolved for this question. The agent only ever considers data the signed-in role is allowed to reach.
 
-A single hardcoded query reaches one table. The questions below need more than one business view joined together, and the agent works out the join on its own. This is the part a canned demo cannot fake.
+## Step 4 - Look at the data it ran against
 
-1. > `Show me the document flow and status of sales order 140780 and all preceding documents`
-   Open the panel. The agent joined more than one view to follow the document flow. List the views you see.
-2. > `Show me the address of customer 1000654 and the total value of their sales orders since January 2026`
-   This needs customer master data and sales order data together, joined and summed. You asked one plain-English question; the agent planned the join.
+Expand the returned data. These are live rows, pulled from the SAP system when you ran the question. Read a few.
 
-**Reflect.** In each of these, how many views did the agent touch, and did you name any of them? That is the difference between natural-language data access and a saved query behind a button.
+## Step 5 - Watch it retry
 
-## Exercise 1.3 - The same agent on a second system (Ariba)
+Still as the **Sales Representative**, run:
 
-Everything so far hit S/4HANA. The agent is not tied to one system. Switch to the **SAP Ariba** tab at the top of the Joule surface and ask about procurement data in the same plain English.
+> `How many sales orders are blocked from delivery?`
 
-The Ariba tab has its own roles. Start as the **Sourcing Manager** (the default):
+This one is harder (it has to find the right status field). You will usually see it generate a query, hit a problem, reason, and generate a corrected query before it succeeds. That retry is the agent checking its own work before it answers.
 
-1. > `List all sourcing projects`
-   A lookup against Ariba, not S/4HANA. Same chat, different business system.
-2. > `Show me all active sourcing projects with their owners`
-   A filtered list with an owner lookup.
+## Step 6 - Run the agent as the Finance Controller
 
-Now switch the role to **Contract Manager** (the "I am a" dropdown) and ask:
+The same agent serves any role; the questions just change with the job. Switch **Logged in as** to the **Finance Controller** and run:
 
-3. > `Show me all contracts expiring in 2026`
-   Contract data, a date filter, still plain English.
-4. > `List all contract workspaces created in 2017`
+> `List 10 profit centers for controlling area 0001 sorted by profit center id`
 
-Open the panel on any of these. The query is Ariba AQL, not SQL, because the agent is talking to a different system underneath. You did not change anything about how you asked. The agent worked out which system owns the data and how to query it.
+and
 
-> **The point of this exercise.** One agent, two systems, one way of asking. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
+> `Show me the 5 most recent journal entries for company 0001 and list document types`
 
-> If you want a self-paced recap of the S/4HANA story, use the **Guided walkthrough** button in the top bar. It replays the core sales prompts one at a time with narration.
+Neither is a sales question, and you still never named a table. Watch the funnel: it scopes to the finance role's own reach.
 
-## Summary
+## Step 7 - Run the agent as the Purchaser
 
-You drove one agent up a ladder of question shapes in S/4HANA (lookup, filter, status, count, grouped report, multi-view joins), then switched it to Ariba for sourcing and contracts without changing how you ask. Every time, you could open the panel and see which view or AQL the agent chose. Next you see the same agent embedded in a custom app.
+Switch **Logged in as** to the **Purchaser** and run:
 
-Continue to - [Exercise 2 - A custom app on the agent](../ex2/README.md)
+> `Find the most expensive item in purchase order 5716435131`
+
+Same agent again, a third domain. One agent, many jobs, each scoped to the role asking.
+
+## Step 8 - Watch it refuse to guess
+
+Set **Logged in as** to the **Utilities Billing Clerk**. This role has its own question button, the open-sales-orders question marked as outside its reach. Run it.
+
+It is the same question you ran in Step 2; only the role changed. Sales data is outside the Utilities Billing Clerk's reach, so the agent concludes it cannot answer and says so. This is the governed behavior that makes it safe in front of real users: it stays inside the role's authorizations and tells you when it cannot help. Switch the role back when you are done.
+
+## Step 9 - Run a complex cross-domain question
+
+Finish on the **Full Access User**. This role has no authorization scope, so it reaches every view, which lets you ask something that spans more than one business object at once. Run:
+
+> `First find the latest journal entry for company code 0001, then show its tax items`
+
+This is two steps in one question: the agent first finds the latest journal entry, then follows it to its tax items and joins the two. Watch the Agent steps: it resolves more than one view, generates a query that links them, and composes a single answer. There is also a second complex question on this role if you want to push it further.
+
+## Deep dive - read the generated SQL (optional)
+
+Open the generated query on each result and read it. Two things the agent got right that a general model routinely gets wrong on SAP:
+
+- **Predicate shaping.** In the blocked-from-delivery query, the filters are real technical codes: `"SDDocumentCategory" = 'C'`, `"OverallDeliveryBlockStatus" = 'C'`, and a block-reason check `"DeliveryBlockReason" <> ' '`. The agent knew the status fields and their code values, which is exactly what a plain language model guesses wrong.
+- **Column discipline.** The open-sales-orders query selects a sensible set of columns and caps the rows (`LIMIT 30`). Output stays readable and the system stays protected.
+
+These come from the SAP Domain Models grounding the agent. Beyond what these two questions surface, the same rules also handle value encoding (matching a human value like 100248 to its padded key 0000100248), SAP date and period formats, parametrized views, and a guard that checks selected fields against the current view metadata so columns that do not exist are intercepted. You will see more of these as you push the agent with your own questions in Freestyle.
+
+Continue to - [Exercise 2 - Ask your data in plain language (Joule)](../ex2/README.md)

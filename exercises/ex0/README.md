@@ -1,48 +1,43 @@
-# Getting Started
+# Exercise 0 - Start here
 
-In this exercise you connect to the hosted Domain Data Access Agent and run your first natural-language question. By the end you will have a baseline for everything that follows, and you will have seen the one idea this whole session rests on: you ask in plain English, and the agent works out the data for itself.
+Get connected, tell us who you are, and read the three short pieces that explain what you are using. The app is a set of tabs; you work through them left to right, and each guided tab tracks a few steps. Finish every tab to earn the passcode that unlocks Freestyle.
 
-## What you are connecting to
+> This is an early preview. The SAP Domain Data Access Agent is still in development and will be released to Early Adopter Care customers, so capabilities and responses may change. The app is a workshop demonstration and its sign-in screens are simulated, but the questions you run do call live running services against real SAP data. Do not treat any result as production output.
 
-The Domain Data Access Agent is available as a hosted service for this session. You do not install anything and you do not join any network. You reach it over normal internet, and the presenter shares the credentials live.
+The tabs:
 
-The service puts the same capability behind three surfaces, shown as tabs across the top:
-
-- **Joule** - the SAP assistant, as a plain chat box over your SAP data, across more than one business system.
-- **Applications** - the same agent inside a custom-built app, shaped for a role.
-- **Agents** - the same capability as a tool your own agent can call.
-
-You will work through all three. For now, stay on **Joule**.
+- **Start here** - setup and reading (this exercise).
+- **Simulator** - how the agent works under the hood.
+- **Joule** - the agent inside the SAP assistant. You sign in through SAP Identity Authentication as a business role, then ask in plain language, across more than one SAP system.
+- **Applications** - the same agent inside a custom app, shaped for a role.
+- **Agents** - the same agent as a tool your own agent calls over A2A.
+- **Freestyle** - unlocked at the end: ask anything, as any role.
 
 ## Step 1 - Open the service
 
-1. In Chrome or Edge, open the service URL the presenter gives you:
+1. In Chrome or Edge, open the URL the presenter gives you:
    > `[Presenter fills in live: attendee-facing service URL]`
-2. When prompted, enter the credentials the presenter shares during the session.
+2. Enter the credentials the presenter shares.
+3. You land on the **Start here** tab.
 
-> If you cannot reach the URL, check that you have a working internet connection. The TechEd guest Wi-Fi is fine. If it still fails, flag a presenter.
+> If the URL does not load, check your internet connection (TechEd guest Wi-Fi is fine). If it still fails, flag a presenter.
 
-## Step 2 - Run your first question
+## Step 2 - Tell us who you are
 
-1. Make sure you are on the **Joule** tab.
-2. In the question box, pick the suggested question or type:
-   > `Show me all open sales orders`
-3. Submit, and wait for the agent to respond.
+Click **Tell us who you are** and fill in what you like (role, SAP domains, familiarity). It is anonymous and every field is skippable. Submit or skip. This is the first checked step.
 
-You get a direct answer back, a short table of sales orders. You never told the agent which table, which view, or which columns. It worked that out on its own.
+## Step 3 - Read: what is the Domain Data Access Agent
 
-## Step 3 - Look at what the agent chose
+A governed, natural-language-to-data access layer for SAP systems like SAP S/4HANA and SAP Ariba. You ask a business question in plain language; it finds the data that answers it, runs a query live against the system, and returns an answer scoped to the user's own authorizations. No schema knowledge required.
 
-This is the part most demos skip, and it is the part that proves the point. Open the detail on that answer (the SQL / execution panel) and look at the query the agent ran.
+Open the overview link on the tab, then expand **See the live agent card** to see what the app discovers about the agent over A2A (its name, skill, and transport).
 
-1. Find the SQL the agent generated.
-2. Find the one SAP view it selected (its name starts with `C_` and is about open sales orders).
-3. Note that you never named it. You asked for "open sales orders" in plain English, and the agent mapped that to the right business view on its own, using the Domain Model underneath.
+## Step 4 - Read: SAP Domain Models
 
-> Keep this panel in mind. Through the rest of the session, every time the agent answers, you can open this view and see exactly which data it reached for. That is how you tell real data access from a scripted demo.
+The agent does not guess at your data. It runs on SAP Domain Models, the enriched understanding of SAP data that lets it map a plain-language question to the right business entities and generate correct, schema-qualified queries. Open the SAP Domain Models link on the tab to learn more.
 
-## Summary
+## Step 5 - Read: the A2A protocol
 
-You are connected to the Domain Data Access Agent, you have run one natural-language question end to end, and you have seen the agent pick the right SAP view with no schema input from you. Next you will push it across more question shapes and watch how it holds up.
+Agent-to-Agent (A2A) is the open protocol the other surfaces use to talk to the agent: a client discovers the agent (its agent card), sends it a task, and streams back the result. You will see A2A in the Simulator and Agents tabs. Open the A2A link on the tab.
 
-Continue to - [Exercise 1 - Ask your data in plain language with Joule](../ex1/README.md)
+Continue to - [Exercise 1 - See how it works (Simulator)](../ex1/README.md)
