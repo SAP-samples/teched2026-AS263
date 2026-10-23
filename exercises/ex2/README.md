@@ -6,17 +6,9 @@ You run verified questions as suggestion chips here; free-form questions are res
 
 Open the **Joule** tab.
 
-## Step 1 - Connect the dots: see what is underneath
+## Step 1 - Sign in through SAP IAS
 
-Click **Show system diagram** in the tab bar. It lays out the pieces:
-
-> You -> SAP IAS (authenticate) -> Joule -> principal propagation -> Domain Data Access Agent -> SAP S/4HANA / Ariba
-
-Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. Your identity is propagated through, so every query runs with your own authorizations. Leave the diagram open; it animates as a question runs.
-
-## Step 2 - Sign in through SAP IAS
-
-The Joule tab opens on an SAP Identity Authentication sign-in, the same first hop you just saw in the diagram. Instead of a password, you pick who you are from a short list of business users:
+The Joule tab opens on an SAP Identity Authentication sign-in, the first hop in how a real SAP user reaches Joule. Instead of a password, you pick who you are from a short list of business users:
 
 - **Emma Ellis**, Internal Sales Representative
 - **Claire Corbett**, Finance Controller
@@ -25,7 +17,7 @@ The Joule tab opens on an SAP Identity Authentication sign-in, the same first ho
 
 Pick **Emma Ellis** and click **Continue**. You land in the Joule chat signed in as that user. The questions you can run are the ones that fit her role, because the agent scopes to the authorizations she signs in with. This is the governance funnel from the Simulator, now from the user's own seat.
 
-## Step 3 - Ask a question
+## Step 2 - Ask a question
 
 The questions for your role appear as buttons above the chat box. The chat box is there, but you do not type in it: click a question and it fills the box, then press **Send**. As **Emma Ellis**, run the lookup:
 
@@ -37,21 +29,43 @@ Then the cross-document question:
 
 The second one needs more than one business view joined (the order, its delivery, its invoice). You asked once; the agent planned the join. This is the sales rep scenario from the workshop intro, answered in seconds.
 
-## Step 4 - Read the generated query
+## Step 3 - Read the generated query
 
 On an answer, open **Show SQL** and read the query the agent generated and ran. You never wrote it and never named the views in it.
 
-## Step 5 - Sign in as a different role
+## Step 4 - Connect the dots: see what ran underneath
 
-Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as a different user to see the same agent serve a different job:
+Now that you have run a question, click **Show system diagram** in the tab bar. It lays out the pieces behind the chat:
 
-- As **Evan Eldridge** (Master Data Specialist): `tell me the name of business partner 1003286`, then `Search business partners with city Shanghai`.
-- As **Dana Delaney** (Maintenance Technician): `List all jobs for plant 1010`, then `Show me all jobs currently in process`.
-- As **Claire Corbett** (Finance Controller): `Show general ledger entries for company code 1710`.
+> You -> SAP IAS (authenticate) -> Joule -> principal propagation -> Domain Data Access Agent -> SAP S/4HANA / Ariba
 
-Each role signs in fresh and sees only its own questions. Master data, maintenance, finance: one agent, each user scoped to their own authorizations.
+Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. You signed in through SAP IAS at the top of this exercise, and your identity is propagated through, so the query you just ran used your own authorizations. Run another question with the diagram open and watch it animate through the pieces.
 
-## Step 6 - Cross to a second system (Ariba)
+## Step 5 - Sign in as the Master Data Specialist
+
+Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data, not sales orders:
+
+> `tell me the name of business partner 1003286`
+
+and
+
+> `Search business partners with city Shanghai`
+
+Same agent, a different job, scoped to his authorizations.
+
+## Step 6 - Sign in as the Maintenance Technician
+
+Sign out again and sign in as **Dana Delaney** (Maintenance Technician). Her questions are about plant maintenance:
+
+> `List all jobs for plant 1010`
+
+and
+
+> `Show me all jobs currently in process`
+
+Three roles, three domains (sales, master data, maintenance), one agent, each user scoped to what they are allowed to see.
+
+## Step 7 - Cross to a second system (Ariba)
 
 Everything so far hit SAP S/4HANA. Switch to the **SAP Ariba** tab at the top. Because Ariba is a different system, you sign in again through SAP IAS, this time as an Ariba user (**Sofia Mertens**, Sourcing Manager). Sign in and run:
 
