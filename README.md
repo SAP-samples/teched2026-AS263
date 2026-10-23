@@ -40,7 +40,7 @@ The hosted workshop app presents the agent through a set of tabs. You work left 
 
 1. **Start here**: tell us who you are (anonymous), and read up on the Domain Data Access Agent, the SAP Domain Models that power it, and the Agent-to-Agent (A2A) protocol.
 2. **Simulator**: see how the agent works under the hood. Watch it scope to your authorizations, resolve the right data views, generate and run a query, verify the result, and answer. This is where you see the reasoning, including when it retries and when it decides it cannot answer.
-3. **Joule**: the agent inside the conversational Joule assistant, used by many different business roles across more than one SAP system.
+3. **Joule**: the agent inside the conversational Joule assistant. You sign in through SAP Identity Authentication as a business role, then ask in plain language, used by many different business roles across more than one SAP system.
 4. **Applications**: the same agent embedded inside custom dashboard applications, where each tile is a live agent call.
 5. **Agents**: the agent as a tool your own agent calls over A2A, reasoning over and acting on the results.
 6. **Freestyle**: unlocked once you finish the guided tabs. Ask anything you like, as any of a wide set of roles, and tell us how it did.
