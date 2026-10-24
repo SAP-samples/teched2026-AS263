@@ -1,5 +1,7 @@
 # Exercise 4 - Bring your own agent (Agents)
 
+> **What you will learn:** how to call the Domain Data Access Agent from an agent of your own over A2A. You will build a short flow (trigger, query, reason, act), run it live, and see the A2A boundary: your agent gets grounded, authorized rows back without ever touching SQL, a schema, or a credential.
+
 The first exercises reached the agent through surfaces we built: Joule and a custom app. This one flips it. You build an agent of your own that calls the Domain Data Access Agent over A2A. Your agent brings the logic; it borrows grounded, authorized SAP data by sending one A2A task.
 
 This is the part you take home. You cannot take our hosted service, but you can take the shape: your agent asks the data agent for data, then reasons over and acts on what comes back.
@@ -41,8 +43,11 @@ Click **Run agent** (top right) and watch each step light up in order:
 
 Look at the Query step's result: you get the **rows** and a **verification** flag. That is the A2A boundary. Your agent receives grounded, authorized data; the query stays on the agent's side. It never sees the schema, never writes SQL, never holds a database credential. It sends a question and gets back data it is allowed to see.
 
+> [!IMPORTANT]
+> This is the whole point of the exercise. Your agent brings the logic and the actions; the data agent owns the schema, the query, and the credentials. One A2A task gets you grounded, authorized SAP data, so you build on top without ever touching the data layer yourself.
+
 ## Where it drops in
 
-The Query step is one tool call. It drops into a Joule skill, a LangChain or MCP tool, or any framework that can make an A2A request (one `message/send` task with the user's question). The reasoning and the actions are yours; the grounded data is the agent's. That is the shape you design around in your own landscape.
+The Query step is one tool call. It drops into a Joule skill, a LangChain or MCP tool, or any framework that can make an A2A request (one `message/send` task with the user's question). The reasoning and the actions are yours; the grounded data is the agent's. In your own landscape, you would design around the same shape.
 
 Continue to - [Exercise 5 - Freestyle](../ex5/README.md)

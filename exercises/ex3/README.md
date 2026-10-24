@@ -1,5 +1,7 @@
 # Exercise 3 - A custom app on the agent (Applications)
 
+> **What you will learn:** how the same agent powers a custom application. You will pick a role, load a dashboard shaped for that job, and see that every tile on the screen is a live agent call, with no SQL, schema, or connection code in the app itself.
+
 Joule answers one question at a time. This is the other packaging: the same agent inside a custom-built app, where every tile on the screen is a live call to it. A chat box answers one question; a purpose-built screen pulls many answers together and shapes them for one person's job.
 
 Switch to the **Applications** tab.
@@ -24,5 +26,8 @@ Click **Load all tiles** (top right). Each tile fires its own call and fills in.
 ## Step 4 - Switch the role
 
 Pick a different role (for example **Operations Lead** or **Clarification Case Processor**). The dashboard rebuilds for that role, each tile still a live call. Notice the same question can serve more than one role's dashboard, and that you never wrote a query, wired a data source, or touched a schema. You picked who the app is for, and the agent answered for them.
+
+> [!TIP]
+> The app holds no query logic of its own. Each tile is one question to the agent, so configuring a dashboard for a new role is a matter of picking that role's questions, not writing code.
 
 Continue to - [Exercise 4 - Bring your own agent (Agents)](../ex4/README.md)

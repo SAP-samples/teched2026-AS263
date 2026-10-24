@@ -1,5 +1,7 @@
 # Exercise 2 - Ask your data in plain language (Joule)
 
+> **What you will learn:** how the same agent shows up inside Joule, the conversational surface your users already know. You will sign in as several business roles, ask in plain language across sales, master data, and maintenance, and then cross into a second SAP system (Ariba) without changing how you ask.
+
 Joule is the surface your users already know: a plain chat box. You sign in as a business role, pick a question, and behind the chat the Domain Data Access Agent runs a live query against real SAP data and hands back rows. No SQL, no transaction code, no schema knowledge.
 
 You run verified questions as suggestion chips here; free-form questions are reserved for Freestyle. This exercise is about range: one agent, many roles, more than one SAP system.
@@ -41,6 +43,9 @@ Now that you have run a question, click **Show system diagram** in the tab bar. 
 
 Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. You signed in through SAP IAS at the top of this exercise, and your identity is propagated through, so the query you just ran used your own authorizations. Run another question with the diagram open and watch it animate through the pieces.
 
+> [!NOTE]
+> Joule is one surface; the engine is the same one you watched step through its loop in Exercise 1. The high-level architecture diagram in Exercise 0 shows where it sits.
+
 ## Step 5 - Sign in as the Master Data Specialist
 
 Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data:
@@ -72,5 +77,12 @@ Everything so far hit SAP S/4HANA. Switch to the **SAP Ariba** tab at the top. B
 > `List all sourcing projects`
 
 Same chat, same way of asking, a different SAP system underneath, and its own sign-in. A business user does not need to know whether sourcing projects live in Ariba or sales orders live in S/4HANA. They ask, and the agent reaches the right system.
+
+> [!TIP]
+> This is the cross-domain reach from the agent's capabilities: it joins across domains and reaches more than one SAP system, with no pre-built view and no middleware wiring on your side.
+
+## Step 8 (optional) - Tell us if the answer helped
+
+Under any answer there is a **Was this answer helpful?** bar. Give it a thumbs up or down on one of the questions you ran, and add a quick comment if you have one. It is anonymous and takes a second. This is a preview, so your read on whether the answer landed (especially when it did not) is exactly what we use to improve the agent.
 
 Continue to - [Exercise 3 - A custom app on the agent (Applications)](../ex3/README.md)
