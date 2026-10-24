@@ -28,7 +28,7 @@ Going through this session, you will see how the **SAP Domain Data Access Agent*
 
 ## Additional Technical Takeaways
 
-In addition to understanding the business value and integration potential of our agent for you and your customers, you will gain a better understanding of how the agent:
+In addition to understanding the business value and integration potential of our agent, you will gain a better understanding of how the agent:
 
 - Propagates and scopes authorization based on the underlying user's role grants
 - Resolves and shortlists data view or entity candidates for querying
