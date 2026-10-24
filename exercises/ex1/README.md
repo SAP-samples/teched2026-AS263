@@ -1,10 +1,13 @@
 # Exercise 1 - See how it works (Simulator)
 
-The Simulator is the one tab where you look under the hood. Everywhere else you see the answer; here you watch the agent work. One question becomes a sequence: scope to your authorizations, resolve the right views, generate a query, run it live, verify the result, answer.
+> **What you will learn:** how one plain-language question becomes a governed, verified answer. You will watch the agent scope to your authorizations, resolve the right views, generate and run a query, check its own work, and answer, then see it retry a hard question and refuse one that is out of a role's reach.
+
+The Simulator is the one tab where you look under the hood. Everywhere else you see the answer; here you watch the agent work. One question becomes a sequence: scope to your authorizations, resolve the right views, generate a query, run it live, verify the result, answer. At query time the agent runs this as a bounded loop, and every step is capped by the user's authorizations.
 
 You run a fixed set of verified questions as buttons here; there is no free text box on this tab. You will be able to write your own queries in the Freestyle tab after going through all the exercises.
 
-One thing to know up front: the questions you can run depend on the role selected in **Logged in as** at the top. The tab shows only that role's questions, and a question runs as that role. Change the role and the question buttons change with it. That is the whole point: one agent, scoped per role.
+> [!NOTE]
+> The questions you can run depend on the role selected in **Logged in as** at the top. The tab shows only that role's questions, and a question runs as that role.
 
 Open the **Simulator** tab.
 
@@ -24,6 +27,9 @@ Watch the Agent steps build in order: scope and resolve the CDS view candidates,
 
 On that result, find the governance funnel: thousands of views in the system, narrowed to the views the role's grants reach, narrowed again to the few resolved for this question. The agent only ever considers data the signed-in role is allowed to reach.
 
+> [!TIP]
+> This funnel is the scope and resolve steps made visible. Scope caps the candidate set to the role's authorizations; resolve runs a scoped search over the semantic layer and reranks to the top few views.
+
 ## Step 4 - Look at the data it ran against
 
 Expand the returned data. These are live rows, pulled from the SAP system when you ran the question. Read a few.
@@ -35,6 +41,9 @@ Still as the **Sales Representative**, run:
 > `How many sales orders are blocked from delivery?`
 
 This one is harder (it has to find the right status field). You will usually see it generate a query, hit a problem, reason, and generate a corrected query before it succeeds. That retry is the agent checking its own work before it answers.
+
+> [!NOTE]
+> This is the validate-and-retry loop. The agent only finalizes a query it has actually run and checked, so it catches and corrects a hallucinated column before it ever reaches you.
 
 ## Step 6 - Run the agent as the Finance Controller
 
@@ -77,6 +86,21 @@ Open the generated query on each result and read it. Two things the agent got ri
 - **Predicate shaping.** In the blocked-from-delivery query, the filters are real technical codes: `"SDDocumentCategory" = 'C'`, `"OverallDeliveryBlockStatus" = 'C'`, and a block-reason check `"DeliveryBlockReason" <> ' '`. The agent knew the status fields and their code values, which is exactly what a plain language model guesses wrong.
 - **Column discipline.** The open-sales-orders query selects a sensible set of columns and caps the rows (`LIMIT 30`). Output stays readable and the system stays protected.
 
-These come from the SAP Domain Models grounding the agent. Beyond what these two questions surface, the same rules also handle value encoding (matching a human value like 100248 to its padded key 0000100248), SAP date and period formats, parametrized views, and a guard that checks selected fields against the current view metadata so columns that do not exist are intercepted. You will see more of these as you push the agent with your own questions in Freestyle.
+These come from the SAP Domain Models grounding the agent. The agent embeds rules that cover the common pitfalls a general model hits when it writes SAP-specific query languages:
+
+| Rule | What it handles | Example |
+|---|---|---|
+| **Value encoding** | Identifier fields padded to their stored key form | A human value like `100248` is matched to its padded key `0000100248` |
+| **Date handling** | SAP's internal date and period formats | ABAP DATS format `YYYYMMDD` |
+| **Parameterized views** | Views that need parameters get them in executable syntax | `FROM <SVC>.<VIEW> (P_DisplayCurrency => 'USD')` |
+| **Predicate shaping** | Status and flag fields use the right technical codes | `WHERE "IsOpen" = 'X'`, not a guessed literal like `status = 'open'` |
+| **Column discipline** | Output clamped to a sensible column set and row cap | Avoids queries that would overload the system |
+| **Hallucination guard** | Selected fields verified against the current view metadata | Columns not found in the view metadata are intercepted before the query runs |
+
+### Where the grounding comes from
+
+The agent does not learn these rules at query time. An offline ingestion pipeline turns cryptic SAP metadata into a searchable semantic layer, and that layer (plus the rules above) is what the runtime loop draws on.
+
+You will see more of these rules in action as you push the agent with your own questions in Freestyle.
 
 Continue to - [Exercise 2 - Ask your data in plain language (Joule)](../ex2/README.md)
