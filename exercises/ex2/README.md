@@ -23,13 +23,13 @@ Pick **Emma Ellis** and click **Continue**. You land in the Joule chat signed in
 
 The questions for your role appear as buttons above the chat box. The chat box is there, but you do not type in it: click a question and it fills the box, then press **Send**. As **Emma Ellis**, run the lookup:
 
-> `when the sales order 140780 was created`
+> `When was sales order 112127 created?`
 
 Then the cross-document question:
 
-> `show me the delivery document details and the invoice details which are related to sales order 140780`
+> `Show me sales orders with their sold-to party and customer name`
 
-The second one needs more than one business view joined (the order, its delivery, its invoice). You asked once; the agent planned the join. This is the sales rep scenario from the workshop intro, answered in seconds.
+The second one needs more than one business view joined (the order and its customer master). You asked once; the agent planned the join. This is the sales rep scenario from the workshop intro, answered in seconds.
 
 ## Step 3 - Read the generated query
 
@@ -41,7 +41,7 @@ Now that you have run a question, click **Show system diagram** in the tab bar. 
 
 > You -> SAP IAS (authenticate) -> Joule -> principal propagation -> Domain Data Access Agent -> SAP S/4HANA / Ariba
 
-Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. You signed in through SAP IAS at the top of this exercise, and your identity is propagated through, so the query you just ran used your own authorizations. Run another question with the diagram open and watch it animate through the pieces.
+Joule is the chat surface; the Domain Data Access Agent is the engine underneath doing the resolve, generate, and execute work you watched in the Simulator. You signed in through SAP IAS at the top of this exercise, and your identity is propagated through, so the query you just ran used your own authorizations. Run another question with the diagram open and watch it animate through the pieces. As the answer streams, the agent also narrates its own steps in the chat (looking, resolving, running, validating), the same loop from the Simulator, now inline.
 
 > [!NOTE]
 > Joule is one surface; the engine is the same one you watched step through its loop in Exercise 1. The high-level architecture diagram in Exercise 0 shows where it sits.
@@ -50,11 +50,11 @@ Joule is the chat surface; the Domain Data Access Agent is the engine underneath
 
 Click **Sign out** on the signed-in strip to return to the SAP IAS screen, then sign in as **Evan Eldridge** (Master Data Specialist). His questions are about business partners and master data:
 
-> `tell me the name of business partner 1003286`
+> `Show me business partners with their id and name`
 
 and
 
-> `Search business partners with city Shanghai`
+> `Tell me the name of business partner 0010000341`
 
 Same agent, a different job, scoped to his authorizations.
 
@@ -62,7 +62,7 @@ Same agent, a different job, scoped to his authorizations.
 
 Sign out again and sign in as **Dana Delaney** (Maintenance Technician). Her questions are about plant maintenance:
 
-> `List all jobs for plant 1010`
+> `Show me all maintenance orders`
 
 and
 
