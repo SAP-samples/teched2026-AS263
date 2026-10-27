@@ -73,11 +73,11 @@ It is the same question you ran in Step 2; only the role changed. Sales data is 
 
 ## Step 9 - Run a complex cross-domain question
 
-Finish on the **Full Access User**. This role has no authorization scope, so it reaches every view, which lets you ask something that spans more than one business object at once. Run:
+Finish on the **Full Access User**. This role carries a broad cross-domain grant set (sales and finance together), which lets you ask something that spans more than one business object at once. Run:
 
-> `First find the latest journal entry for company code 0001, then show its tax items`
+> `Show me the total net value of open sales orders per customer`
 
-This is two steps in one question: the agent first finds the latest journal entry, then follows it to its tax items and joins the two. Watch the Agent steps: it resolves more than one view, generates a query that links them, and composes a single answer. There is also a second complex question on this role if you want to push it further.
+This is an aggregation the agent has to shape itself: it groups open orders by customer and sums the net value. Watch the Agent steps resolve the right view, generate a grouped query, and compose a single answer. There is also a second complex question on this role (customers with more than one open order, a subquery) if you want to push it further.
 
 ## Deep dive - read the generated SQL (optional)
 
