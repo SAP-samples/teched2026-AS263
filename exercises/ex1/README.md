@@ -73,11 +73,11 @@ It is the same question you ran in Step 2; only the role changed. Sales data is 
 
 ## Step 9 - Run a complex cross-domain question
 
-Finish on the **Full Access User**. This role carries a broad cross-domain grant set (sales and finance together), which lets you ask something that spans more than one business object at once. Run:
+Finish on the **Full Access User**. This role carries a broad cross-domain grant set (sales and logistics together), which lets you ask something that spans more than one business object at once. Run:
 
-> `Show me the total net value of open sales orders per customer`
+> `For open sales orders, show the related delivery documents`
 
-This is an aggregation the agent has to shape itself: it groups open orders by customer and sums the net value. Watch the Agent steps resolve the right view, generate a grouped query, and compose a single answer. There is also a second complex question on this role (customers with more than one open order, a subquery) if you want to push it further.
+This spans two domains. The sales order lives in Sales, the delivery document lives in Logistics, and the agent has to join them. Watch the Agent steps resolve both views, generate a query that links the sales document to its deliveries, and compose a single answer. You never named a table, a join key, or which systems the two objects live in.
 
 ## Deep dive - read the generated SQL (optional)
 
